@@ -56,7 +56,7 @@ public class StudentController {
 		return null;
 	}
 	
-	@RequestMapping(value="/detail", method=RequestMethod.GET)
+	@RequestMapping(value="/detail_view", method=RequestMethod.GET)
 	public String detail(String stNum, Model model) {
 		
 		StudentVO stVO = stService.findByStNum(stNum); // vo에 있음
@@ -65,7 +65,7 @@ public class StudentController {
 		return null;
 	}
 	
-	@RequestMapping(value="/update", method=RequestMethod.GET)
+	@RequestMapping(value="/list2", method=RequestMethod.GET)
 	public String update() {
 		return null;
 	}

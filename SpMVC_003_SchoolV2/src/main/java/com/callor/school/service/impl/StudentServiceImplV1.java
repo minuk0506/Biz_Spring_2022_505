@@ -68,13 +68,13 @@ public class StudentServiceImplV1 implements StudentService{
 	}
 
 	@Override
-	public Integer insert(StudentVO stVO) {
+	public Integer input(StudentVO stVO) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Integer update(StudentVO stVO) {
+	public Integer list2(StudentVO stVO) {
 		// TODO Auto-generated method stub
 		return null;
 	}

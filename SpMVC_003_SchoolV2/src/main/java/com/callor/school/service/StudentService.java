@@ -16,8 +16,8 @@ public interface StudentService {
 	public List<StudentVO> selectAll();
 	public StudentVO findByStNum(String stNum);
 	
-	public Integer insert(StudentVO stVO);
-	public Integer update(StudentVO stVO);
+	public Integer input(StudentVO stVO);
+	public Integer list2(StudentVO stVO);
 	public Integer delete(String stNum); 
 	
 	public List<StudentVO> findByStTel(String stTel);

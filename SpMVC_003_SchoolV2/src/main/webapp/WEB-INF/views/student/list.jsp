@@ -85,7 +85,7 @@
 			</c:forEach>
 		</table>
 		<div class="button-box">
-			<a href="${rootPath}/student/insert">학생정보 등록</a>
+			<a href="${rootPath}/student/input">학생정보 등록</a>
 		</div>
 	</section>
 	<%@ include file="/WEB-INF/views/include/include_footer.jsp"%>
