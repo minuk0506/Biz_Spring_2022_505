@@ -9,55 +9,67 @@ form {
 
 form div {
 	width: 80%;
+	display: flex;
+	margin: 5px auto;
 }
 
 form label, form input {
-	display: inline-block;
 	padding: 8px;
 }
 
 form label {
 	width: 30%;
+	flex: 2;
 	text-align: right;
 }
 
 form input {
+	flex: 4;
 	width: 65%;
 	margin-left: 5px;
+	width: 65%;
 }
 
 form div:last-of-type {
-	text-align: right;
+	justify-content: flex-end;
 }
 
 fieldset {
 	margin: 30px;
 	padding: 30px;
 }
+form div:first-of-type input{
+	flex:2;
+}
 </style>
+<script>
+	const rootPath = "${rootPath}"
+</script>
+<script src="${rootPath}/static/js/std_input.js?ver=2022-05-10-013"></script>
 <fieldset>
 	<legend>학생정보등록</legend>
 	<form method="post">
 		<div>
 			<label>학번</label> <input type="text" name="st_num">
+			<button type="button" class="btn-green std-num-check">중복검사</button>
 		</div>
 		<div>
-			<label>이름</label> <input type="text" name="st_num">
+			<label>이름</label> <input type="text" name="st_name">
 		</div>
 		<div>
-			<label>학과</label> <input type="text" name="st_num">
+			<label>학과</label> <input type="text" name="st_dept">
 		</div>
 		<div>
-			<label>학년</label> <input type="text" name="st_num">
+			<label>학년</label> <input type="text" name="st_grade">
 		</div>
 		<div>
-			<label>전화번호</label> <input type="text" name="st_num">
+			<label>전화번호</label> <input type="text" name="st_tel">
 		</div>
 		<div>
-			<label>주소</label> <input type="text" name="st_num">
+			<label>주소</label> <input type="text" name="st_addr">
 		</div>
 		<div>
-			<button>저장</button>
+			<button type="button" class="btn-blue std-save">저장</button>
 		</div>
 	</form>
 </fieldset>
