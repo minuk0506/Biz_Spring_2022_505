@@ -9,12 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
         return false;
       }
       // alert("입력한 학번 : " + st_num.value);
+      // fetch <- 중요함
       // fetch(rootPath + "/student/st_num_check?st_num=" + st_num.value) 를 JS식으로 바꾼코드
       fetch(`${rootPath}/student/st_num_check?st_num=${st_num.value}`)
         .then((res) => res.text())
         .then((result) => {
           alert(result);
-        });
+        }); // Ajax
     });
   }
   // 현재 html 화면에 있는 클래스가 std-save 인 버튼을 챙겨서
