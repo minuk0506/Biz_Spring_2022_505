@@ -1,3 +1,19 @@
+const st_num_fetch = (st_num) => {
+  // fetch <- 중요함
+  // fetch(rootPath + "/student/st_num_check?st_num=" + st_num.value) 를 JS식으로 바꾼코드
+  fetch(`${rootPath}/student/st_num_check?st_num=${st_num}`)
+    .then((res) => res.text())
+    .then((result) => {
+      if (result === "USE") {
+        alert("이미 등록된 학번\n다시 입력하세요");
+        return false;
+      } else {
+        alert("사용 가능한 학번입니다");
+        return true;
+      }
+    }); // Ajax
+};
+
 const save_cb = () => {
   const st_num = document.querySelector("input[name='st_num']");
   const st_name = document.querySelector("input[name='st_name']");
@@ -12,6 +28,13 @@ const save_cb = () => {
   // 경고 메시지를 보여주고 유효성 검사 중단
   if (st_num.value === "") {
     alert("학번은 반드시 입력해야 합니다");
+    st_num.focus();
+    return false;
+  }
+
+  const st_num_yes = st_num_fetch(st_num.value);
+  if (!st_num_yes) {
+    st_num.value = "";
     st_num.focus();
     return false;
   }

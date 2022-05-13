@@ -8,9 +8,12 @@ import com.callor.school.dao.StudentDao;
 import com.callor.school.model.StudentVO;
 import com.callor.school.service.StudentService;
 
+import lombok.extern.slf4j.Slf4j;
+
 /*
  * StudentService stService = new StudentServiceImplV1();
  */
+@Slf4j
 @Service("stServiceV1")
 public class StudentServiceImplV1 implements StudentService{
 
