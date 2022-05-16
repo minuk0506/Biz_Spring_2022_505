@@ -116,7 +116,10 @@ button.btn-orange {
 	background-color: orange;
 	color: white;
 }
-
+article.st-list{
+	overflow:auto;
+	max-height: 70vh;
+}
 </style>
 <script>
 	// jsp 의 속성(변수)값을 JS 로 보내기 위해
@@ -144,7 +147,7 @@ button.btn-orange {
 		/*
 			java코드로 주석넣기
 			(jsp 코드랑 충돌 많음)
-			*/
+		*/
 		%>
 		<c:choose>
 			<c:when test="${LAYOUT == 'ST_LIST'}">
@@ -158,7 +161,9 @@ button.btn-orange {
 				</article>
 			</c:when>
 			<c:otherwise>
-				<article></article>
+				<article class="st-list">
+				<%@ include file="/WEB-INF/views/student/list.jsp" %>
+				</article>
 				<article></article>
 				<article></article>
 			</c:otherwise>
