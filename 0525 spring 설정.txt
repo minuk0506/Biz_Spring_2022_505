@@ -1,0 +1,74 @@
+porm.xml에서
+
+properties에서 java버전 바꾸기
+
+메이븐 리포지터리
+spring검색 spring context 들어가서
+properties에서 springframework 버전 최신으로 
+
+slf4j 검색 slf4j api module 들어가서
+properties slf4j 버전 최신으로
+
+Apache Maven Compiler Plugin 들어가서
+맨밑쪽 build - plugin
+maven-compiler-plugin 버전 최신으로
+source, target - ${java-version} 으로
+
+Logging slf4j만 남기고 servlet 위 까지 삭제(inject까지)
+
+Logback Classic Module 들어가서
+최신버전 복사 
+Logging slf4j 밑에 붙여넣기
+메이븐 업데이트
+
+views 폴더 home.jsp 삭제
+home.jsp 다시 만들기
+
+초기 설정 완료
+
+lombok 검색 최신버전 복사
+servlet 위에 붙여넣기
+
+homecontroller 
+@Slf4j
+@Controller
+public class HomeController {
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String home(Locale locale, Model model) {
+		log.debug("반갑습니다 여기는 home 입니다");
+		return "home";
+	}
+	
+}
+
+src/main/resources 에 logback-test.xml 만들고
+https://github.com/callor/Reference/blob/master/Setting/logback/logback-test(UTF-8-new).xml
+복사 붙여넣기(log가 많이 간소해짐)
+
+service, serviceimpl 패키지 만들기
+
+webapp아래 resources 폴더 이름 바꿨으면 servlet-context에서 resources mapping, location경로 바꾸기
+
+<context:component-scan base-package="com.callor.school.controller" />
+<context:component-scan base-package="com.callor.school.service.impl" />
+(스캔할 패키지 설정)
+
+model 패키지 와 VO만들기
+
+service패키지에 interface 만들기
+
+impl 패키지에 UserServiceImplV1 만들기 (@Service 를 클래스 위에)
+UserService클래스를 implements 받고 add method
+
+package info 다 지우고 
+UserContoller 만들어서 내용 채움
+
+views폴더에서 new (user/login.jsp)만듬
+login.jsp 내용채움
+
+404오류 날 경우
+servlet-conext - component-scan 확인
+Controller package 확인
+프로젝트 시작 경로 - 컨텍스트 제대로 따라오는지
+루트패스 제대로 되있는지
