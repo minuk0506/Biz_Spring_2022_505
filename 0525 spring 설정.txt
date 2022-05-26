@@ -1,3 +1,4 @@
+0525[
 porm.xml에서
 
 properties에서 java버전 바꾸기
@@ -72,3 +73,98 @@ servlet-conext - component-scan 확인
 Controller package 확인
 프로젝트 시작 경로 - 컨텍스트 제대로 따라오는지
 루트패스 제대로 되있는지
+]
+
+0526[
+	sts 초기화시
+
+	window - preferences - web - jsp files - tempates -
+	new jsp file(html 5) - edit 에 밑에 코드 붙여넣기
+	rootPath 만들때 $를 두개 넣어야 될 때 있음
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	<c:set value="${pageContext.request.contextPath}" var="rootPath"/>
+
+	window - perspective - customize perspective - menu visibility - file - new 에서 쓸 것들만 선택
+	(지금은 package, class, interface, enum, folder, file, untitled text file, css file, html file, jsp file, xml file, spring bean confiquration file, spring legacy project 만 켰음)
+
+<!-- DBMS 연동 프로젝트 -->
+	<!-- spring-jdbc -->
+	<!-- spring 프로젝트에서 DBMS 와 연결하는 첫번째 파이프 -->
+	메이븐 리포지터리 - spring-jdbc 검색 - 복사 붙여넣기 - spring-webmvc와 버전이 같아야함 (webmvc버전을 jdbc쪽에 복붙해도됨)
+
+	<!-- common dbcp2 -->
+	<!-- DB connection pool 을 만들고 db 연결을 원할히 도와 주는 도구 -->
+	Apache Commons DBCP - commons-dbcp2 - 복사 붙여넣기
+
+	<!-- mybatis -->
+	MyBatis 복붙
+
+	<!-- mybatis-spring -->
+	mybatis-spring 복붙
+
+	<!-- DB 와 연결할때 SQL 을 변환하여 DB 로 보내는 데이터로 자동 변환 -->
+	<!-- Dao 클래스를 자동으로 생성해주는 도구 -->
+	
+	<!-- ojdbc -->
+	<!-- Oracle 과 연결할 때 Project 에서 DBMS 로 연결하는 도구 -->
+	oracle 검색 - Ojdbc8 복사붙여넣기
+	<!-- AspectJ -->위로
+
+	Maven 업데이트 후 실행해보기
+
+	appServlet 폴더에 - mybatis-context 라는 이름으로 - new spring bean configuration 생성 - next - beans, context, mybatis-spring, tx 선택하고 맨밑에 애들(최신버전) 선택
+
+	mybatis-context에 할 것
+	<bean id="ds" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="user3"/>
+		<property name="password" value="12341234"/>
+	</bean>
+
+	<!-- SqlSessionFactory -->
+	<!-- Dao, Mapper 등을 사용하여 DB 연결하는 bean 생산기지 설정 -->
+	<!-- mapper 를 추가 할 일이 있으면 추가 -->
+	<!-- ex)<property name="mapperLocations" value="/WEB-INF/spring/mapper/*-mapper.xml"/>
+	-->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="ds"/>
+		<property name="typeAliasesPackage" value="com.callor.school.model"/>
+	</bean>
+
+	<!-- SqlSessionTemplate -->
+	<!-- SessionFactory 를 도와주는 도구 -->
+	<bean class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSession"/>	
+	</bean>
+	
+	<!-- Dao interface 가 저장된 package 를 scan 하여 SqlSessionFactory 에게 알려주는 역할 수행 -->
+	<mybatis-spring:scan base-package="com.callor.school.pesistance"/>
+
+	web.xml
+	contextConfigLocation 밑에
+	servlet-context -> *-context 수정
+
+	spring 폴더 아래 mapper 폴더를 만들고 student-mapper.xml 그 안에
+	https://github.com/callor/Reference/blob/master/Setting/mybatis/mybatis-mapper.xml
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  	를 <?xml version="1.0" encoding="UTF-8"?> 밑에썼다
+
+  <mapper namespace="com.callor.school.pesistance.StudentDao">
+	
+	<select id="selectAll">(selectAll 아이디를 쓰면 이 SQL문 사용)
+		SELECT * FROM tbl_student
+	</select>
+	
+	<select id="findByid">(findByid 아이디를 쓰면 이 SQL문 사용)
+		SELECT * FROM tbl_student WHERE st_num = #{st_num}
+	</select>
+	방식으로 필요한 것들을 적는다(insert, update 등 다 가능)
+</mapper>
+	후에 resultType, parameterType 추가
+	이후 자바쪽 코드 작성함
+
+]
