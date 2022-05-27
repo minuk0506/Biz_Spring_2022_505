@@ -31,7 +31,7 @@
 		SELECT * FROM tbl_student
 	</select>
 	
-	<select id="findByid" resultType="StudentVO">
+	<select id="findById" resultType="StudentVO">
 		SELECT * FROM tbl_student WHERE st_num = #{st_num}
 	</select>
 	

@@ -167,4 +167,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	후에 resultType, parameterType 추가
 	이후 자바쪽 코드 작성함
 
+	web.xml 한글엔코딩
+	https://github.com/callor/Reference/blob/master/Setting/server/web.xml
+
+
 ]
