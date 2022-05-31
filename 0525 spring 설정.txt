@@ -172,3 +172,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 ]
+# 메이븐 디포지터리 spring security 검색 
+* spring security core release 버전 spring web mvc 밑에 삽입
