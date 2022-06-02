@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+/*
+home.jsp 에 적용할 css
+header, nav, footer 등의 설정
+*/
+
+header{
+	padding: 1.2rem;
+	text-align: center;
+	background-color: rgb(193,226,237);
+	color: rgb(47,41,41);
+	font-weight: 900;
+}
+
+nav{
+	background-color: skyblue;
+	color: white;
+}
+
+nav ul{
+	list-style: none;
+	display: flex;
+}
+
+nav li{
+	padding: 3px 16px;
+	margin: 15px;
+	border-bottom: 5px solid transparent;
+	font-weight: 900;
+	font-size: 20px;
+	
+	transition: border 0.7s ease-out;
+}
+
+nav li:hover {
+	cursor: pointer;
+	background-color: 5px solid rgb(241,241,114);
+	
+}
