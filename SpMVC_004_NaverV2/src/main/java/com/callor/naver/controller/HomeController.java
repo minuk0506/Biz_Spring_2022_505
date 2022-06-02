@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.annotation.RequestScope;
 
 import com.callor.naver.service.exec.NaverBookServiceEx;
 
@@ -32,4 +33,14 @@ public class HomeController {
 		return resString;
 	}
 	
+	/*
+	 * 프로젝트의 요청에 대하여 소수의 Controller 를 만들고
+	 * 처리를 할 수 있다
+	 * 하지만, 프로젝트 규모가 커지면 코드 관리가 어려워지고
+	 * 결국에는 프로젝트를 Refactoring 해야하는 상황에 직면하게 된다
+	 */
+//	@RequestMapping(value="/books/list")
+//	public String bookList() {
+//		return "books/list";
+//	}
 }

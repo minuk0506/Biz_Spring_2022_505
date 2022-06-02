@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.callor.naver.model.NaverBookVO;
+import com.callor.naver.model.BookVO;
 import com.callor.naver.service.NaverService;
 
 @RequestMapping(value="/naver")
@@ -22,7 +22,7 @@ public class NaverController {
 	@RequestMapping(value="/books", method=RequestMethod.GET)
 	public String getBooks(String title, Model model) {
 		String queryString = naverService.queryString("BOOK", title);
-		List<NaverBookVO> bookList = naverService.getNaverBook(queryString);
+		List<BookVO> bookList = naverService.getNaverBook(queryString);
 		model.addAttribute("BOOKS", bookList);
 		return "naver/book_search";
 	}

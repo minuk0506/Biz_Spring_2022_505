@@ -35,6 +35,33 @@ nav li{
 
 nav li:hover {
 	cursor: pointer;
-	background-color: 5px solid rgb(241,241,114);
-	
+	border-bottom: 5px solid rgb(241,241,114);
+}
+
+/*
+nav 등에 a tag 를 사용할때
+보통 일반적인 tag 는 부모 tag 에 설정된 style 을 상속받아
+자연스럽게 구성이 된다
+하지만 a tag 는 font, color, text-style 등을 부모 tag 로 부터
+상속받지 않는다
+항상 스스로의 모습만 고집하는 tag 이다
+a tag 에서는 text-decoration 과 font 의 color 등을
+자체적으로 설정을 해야한다
+*/
+
+a{
+	text-decoration: none;
+}
+
+/*
+a tag 의 color 를 자체적으로 설정할 수 있지만
+nav tag 와 함께 사용할 때는 nav 에서 color 를 설정하고
+a tag 에서는 nav 의 color 를 강제로 상속받도록 설정한다
+
+color: inherit;
+
+만약 nav 의 color 를 변경했을때 a tag도 다시 변경해야하는 불편함을 줄일 수 있다
+*/
+nav a{
+	color: inherit;
 }

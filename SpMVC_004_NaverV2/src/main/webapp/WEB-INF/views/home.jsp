@@ -26,7 +26,7 @@
 <link rel="stylesheet"
 	href="${rootPath}/static/css/main.css?ver=2022-06-02-001">
 <link rel="stylesheet"
-	href="${rootPath}/static/css/home.css?ver=2022-06-02-001">
+	href="${rootPath}/static/css/home.css?ver=2022-06-02-002">
 <link rel="stylesheet"
 	href="${rootPath}/static/css/table.css?ver=2022-06-02-001">
 <link rel="stylesheet"
@@ -42,12 +42,14 @@
 </head>
 <body>
 	<header>
+		<h1>My API</h1>
+		<p>Naver API 를 활용한 도서, 뉴스, 영화 정보 서비스</p>
 	</header>
 	<nav>
 		<ul>
 			<li><a href="${rootPath}/">Home</a></li>
-			<li><a href="${rootPath}/books">도서정보</a></li>
-			<li><a href="${rootPath}/news">오늘의 뉴스</a></li>
+			<li><a href="${rootPath}/books/list">도서정보</a></li>
+			<li><a href="${rootPath}/news/list">오늘의 뉴스</a></li>
 			<li><a href="${rootPath}/movies">영화정보</a></li>
 			<%// 로그인을 하지 않았을때 %>
 			<c:if test="${empty MEMBER}">
