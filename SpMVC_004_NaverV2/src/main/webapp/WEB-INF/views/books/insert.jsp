@@ -11,13 +11,14 @@
 	<div>
 		<input name="author" placeholder="저자">
 		<input name="publisher" placeholder="출판사">
-		<input name="pubdata" placeholder="출판일">
+		<input name="pubdate" placeholder="출판일">
 		<input name="price" placeholder="가격" type="number">
 	</div>
 	<div>
+		<input name="discount" placeholder="할인">
 		<input name="link" placeholder="자세히보기">
 		<input name="image" placeholder="이미지경로">
 	</div>
-	<textarea rows="10"></textarea>
+	<textarea name="description" rows="10"></textarea>
 	<button type="submit">저장</button>
 </form>

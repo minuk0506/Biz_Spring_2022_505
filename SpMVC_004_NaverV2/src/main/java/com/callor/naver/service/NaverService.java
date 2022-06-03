@@ -7,6 +7,6 @@ import com.callor.naver.model.BookVO;
 public interface NaverService {
 
 	public String queryString(String cat, String search);
-	public List<BookVO> getNaverBook(String queryString);
+	public List<Object> getNaver(String queryString);
 	
 }

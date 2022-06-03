@@ -15,6 +15,6 @@
 </head>
 
 <body>
-	<h1>영화</h1>
+
 </body>
 </html>

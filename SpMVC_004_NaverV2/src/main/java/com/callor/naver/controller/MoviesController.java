@@ -12,6 +12,10 @@ public class MoviesController {
 		return "movies/list";
 	}
 	
+	@RequestMapping(value="/list")
+	public String list() {
+		return null;
+	}
 	
 	
 }

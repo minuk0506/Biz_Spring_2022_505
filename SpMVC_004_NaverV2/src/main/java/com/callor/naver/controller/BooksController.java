@@ -2,6 +2,7 @@ package com.callor.naver.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,7 +39,8 @@ public class BooksController {
 		return "books/list";
 	}
 	
-	@RequestMapping(value="/list")
+	
+	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public String list(Model model){
 		/*
 		 * return null 형식은
@@ -51,7 +53,8 @@ public class BooksController {
 		List<BookVO> bookList = bookService.selectAll();
 		// bookList 에 담긴 데이터를 BOOKS 이름으로 변수에 담아
 		// jsp 파일로 보내겠다
-		model.addAttribute("BOOKS",bookList);
+		model.addAttribute("LIST",bookList);
+		model.addAttribute("LAYOUT","LIST");
 		return null;
 	}
 
@@ -65,6 +68,8 @@ public class BooksController {
 	
 	@RequestMapping(value="/insert", method=RequestMethod.GET)
 	public String insert() {
+		
+		
 		return null;
 	}
 	
@@ -75,6 +80,15 @@ public class BooksController {
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	public String insert(BookVO bookVO) {
 		log.debug("도서정보 : " + bookVO.toString());
+		bookService.insert(bookVO);
+		
+		return null;
+	}
+	
+	@RequestMapping(value="/detail", method=RequestMethod.GET)
+	public String detail(BookVO bookVO) {
+		bookService.findById();
+		
 		return null;
 	}
 	
