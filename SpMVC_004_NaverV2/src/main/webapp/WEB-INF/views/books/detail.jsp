@@ -15,6 +15,27 @@
 </head>
 
 <body>
+	<table>
+		<tr>
+			<td>도서코드</td>
+			<td>${book.isbn}</td>
+			<td>도서명</td>
+			<td>${book.title}</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+
 
 </body>
 </html>

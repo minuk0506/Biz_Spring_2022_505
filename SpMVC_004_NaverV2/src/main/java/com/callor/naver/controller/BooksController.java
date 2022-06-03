@@ -87,7 +87,7 @@ public class BooksController {
 	
 	@RequestMapping(value="/detail", method=RequestMethod.GET)
 	public String detail(BookVO bookVO) {
-		bookService.findById();
+		// bookService.findById();
 		
 		return null;
 	}
