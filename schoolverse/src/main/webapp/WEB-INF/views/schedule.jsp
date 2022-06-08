@@ -10,9 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Page</title>
     <link rel="stylesheet" href="${rootPath }/resources/css/schedule.css" />
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=40dea0e310add7b952e4c081dd860973&libraries=services"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=40dea0e310add7b952e4c081dd860973&libraries=services,clusterer,drawing"></script>
   </head>
-
+  <script src="${rootPath }/resources/js/kakaomap.js?ver=22-06-08-009"></script>
   <body>
     <div class="wrapper">
       <div class="table">
@@ -169,5 +169,4 @@
   </body>
 
   <script src="${rootPath }/resources/js/schedule.js"></script>
-  <script src="${rootPath }/resources/js/kakaomap.js?ver=22-06-08-004"></script>
 </html>
