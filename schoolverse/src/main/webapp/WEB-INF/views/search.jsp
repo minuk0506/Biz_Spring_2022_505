@@ -10,13 +10,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>academy-info</title>
-  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=nanq2sq1z7"></script>
+
 </head>
 <link rel="stylesheet" href="${rootPath }/resources/css/reset.css" />
-<link rel="stylesheet" href="${rootPath }/resources/css/search.css" />
-<link rel="stylesheet" href="${rootPath }/resources/css/basket.css">
+<link rel="stylesheet" href="${rootPath }/resources/css/search.css?ver=22-06-08-005" />
+<link rel="stylesheet" href="${rootPath }/resources/css/basket.css?ver=22-06-08-005">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=40dea0e310add7b952e4c081dd860973&​libraries=services"></script>
 <body>
   <aside class="aside">
     <div>
@@ -243,7 +243,8 @@
 
 
 </body>
+
 <script src="${rootPath }/resources/js/basket.js"></script>
 <script src="${rootPath }/resources/js/search.js"></script>
-<script src="${rootPath }/resources/js/map_search.js?ver=2"></script>
+<script src="${rootPath }/resources/js/kakaomap.js?ver=22-06-08-005"></script>
 </html>

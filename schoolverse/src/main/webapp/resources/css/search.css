@@ -8,12 +8,12 @@ body {
 
 ::-webkit-scrollbar {
   width: 1rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   overflow: hidden;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   background-color: rgb(73, 73, 73);
   background-clip: padding-box;
   border: 3px solid transparent;
@@ -21,10 +21,9 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  padding: .2rem;
-  border-radius: .5rem;
+  padding: 0.2rem;
+  border-radius: 0.5rem;
   background-color: rgb(194, 194, 194);
-
 }
 
 .aside {
@@ -66,7 +65,6 @@ body {
 .search-bar select:nth-of-type(3) {
   width: 8rem;
 }
-
 
 article {
   width: 70%;
@@ -181,10 +179,7 @@ article {
 
 #map {
   flex: 3;
-  height: 100%;
-  background-image: url("../img/map.png");
-  background-size: cover;
-  background-repeat: no-repeat;
+  position: fixed;
 }
 
 .put-in {
@@ -249,7 +244,6 @@ article {
 .content h3 {
   font-size: 1.5rem;
   font-weight: bold;
-
 }
 
 #add_btn {
@@ -319,7 +313,6 @@ article {
 .teacher-info img {
   width: 10rem;
   height: 10rem;
-
 }
 
 .others {
@@ -348,7 +341,7 @@ article {
   padding: 1rem 2rem;
   background-color: rgb(255, 175, 4);
   font-weight: bold;
-  border-radius: .3rem;
+  border-radius: 0.3rem;
   font-size: 1.2rem;
   cursor: pointer;
 }
