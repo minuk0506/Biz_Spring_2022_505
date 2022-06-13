@@ -14,20 +14,20 @@
 </head>
 <link rel="stylesheet" href="${rootPath }/resources/css/reset.css" />
 <link rel="stylesheet"
-	href="${rootPath }/resources/css/search.css?ver=22-06-08-005" />
+	href="${rootPath }/resources/css/search.css?ver=22-06-13-001" />
 <link rel="stylesheet"
-	href="${rootPath }/resources/css/basket.css?ver=22-06-08-005">
+	href="${rootPath }/resources/css/basket.css?ver=22-06-13-001">
 <link rel="stylesheet"
 	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=40dea0e310add7b952e4c081dd860973&libraries=services,clusterer,drawing"></script>
 
 <script src="${rootPath }/resources/js/kakao.js?ver=22-06-12-001"></script>
-<link rel="stylesheet" href="${rootPath }/resources/css/kakao.css?ver=22-06-12-001">
+<link rel="stylesheet"
+	href="${rootPath }/resources/css/kakao.css?ver=22-06-13-003">
 <body>
 	<div class="map_wrap">
-		<div id="map"
-			style="width: 100vw; height: 100vh; position: relative; overflow: hidden;"></div>
+		<div id="map"></div>
 	</div>
 	<aside class="aside">
 		<div>

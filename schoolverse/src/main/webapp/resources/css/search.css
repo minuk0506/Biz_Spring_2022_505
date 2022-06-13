@@ -129,7 +129,7 @@ article {
 
 .section {
   z-index: 99;
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   transform: translateX(1200px);
