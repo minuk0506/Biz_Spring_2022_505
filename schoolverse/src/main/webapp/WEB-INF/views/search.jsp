@@ -195,7 +195,6 @@
 				<div class="content-section">
 					<h1 class="title">yy영어학원</h1>
 					<hr>
-					</h2>
 					<h2 class="fee">300,000원/월</h2>
 				</div>
 				<div class="sub">-</div>
@@ -207,7 +206,6 @@
 				<div class="content-section">
 					<h1 class="title">zz영어학원</h1>
 					<hr>
-					</h2>
 					<h2 class="fee">200,000원/월</h2>
 				</div>
 				<div class="sub">-</div>
@@ -218,7 +216,6 @@
 				<div class="content-section">
 					<h1 class="title">xx수학학원</h1>
 					<hr>
-					</h2>
 					<h2 class="fee">300,000원/월</h2>
 				</div>
 				<div class="sub">-</div>
@@ -229,7 +226,6 @@
 				<div class="content-section">
 					<h1 class="title">oo피아노학원</h1>
 					<hr>
-					</h2>
 					<h2 class="fee">200,000원/월</h2>
 				</div>
 				<div class="sub">-</div>
@@ -250,9 +246,6 @@
 		<h1 class="sum"></h1>
 	</div>
 	<!-- wrapper end -->
-
-
-
 </body>
 
 <script src="${rootPath }/resources/js/basket.js"></script>
