@@ -23,7 +23,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/schedule", method = RequestMethod.GET)
 	public String schedule(Model model) {
-
+		
 		return null;
 	}
 	

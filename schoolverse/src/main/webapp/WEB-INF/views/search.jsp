@@ -21,10 +21,8 @@
 	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=40dea0e310add7b952e4c081dd860973&libraries=services,clusterer,drawing"></script>
-
-<script src="${rootPath }/resources/js/kakao.js?ver=22-06-12-001"></script>
 <link rel="stylesheet"
-	href="${rootPath }/resources/css/kakao.css?ver=22-06-13-003">
+	href="${rootPath }/resources/css/kakao.css?ver=22-06-13-004">
 <body>
 	<div class="map_wrap">
 		<div id="map"></div>
@@ -32,19 +30,19 @@
 	<aside class="aside">
 		<div>
 			<div id="nav">
-
+				<div id="menu_wrap" class="bg_white">
+					<div class="option">
+						<div>
+							<form onsubmit="searchPlaces(); return false;" method="POST">
+								키워드 : <input type="text" value="광주" id="keyword" size="15">
+								<button type="submit">검색하기</button>
+							</form>
+						</div>
+					</div>
+				</div>
 				<form>
 					<div class="search-bar">
-						<div id="menu_wrap" class="bg_white">
-							<div class="option">
-								<div>
-									<form onsubmit="searchPlaces(); return false;">
-										키워드 : <input type="text" value="광주 학원" id="keyword" size="15">
-										<button type="submit">검색하기</button>
-									</form>
-								</div>
-							</div>
-						</div>
+
 						<!-- 검색창 <select name="지역">
 							<option value="">지역</option>
 							<option value="광산구">광산구</option>
@@ -259,4 +257,6 @@
 
 <script src="${rootPath }/resources/js/basket.js"></script>
 <script src="${rootPath }/resources/js/search.js"></script>
+<script src="${rootPath }/resources/js/kakao.js?ver=22-06-13-008"></script>
+
 </html>
