@@ -14,12 +14,12 @@
 <title>Insert title here</title>
 
 <style>
-section.main {
+div.main {
 	width: 50vw;
 	margin: 10px auto;
 }
 
-section.main input {
+div.main input {
 	border: 1px solid rgba(255, 255, 255, 0.5);
 	background-color: transparent;
 	min-height: 10rem;

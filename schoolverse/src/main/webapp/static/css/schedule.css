@@ -1,0 +1,173 @@
+@import "reset.css";
+
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 100;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');}
+
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 300;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype');}
+
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 400;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');}
+
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 500;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype');}
+
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 700;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype');}
+
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 900;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype');}
+@font-face {
+    font-family: 'SuncheonB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/SuncheonB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+	font-family: 'Noto Sans KR', sans-serif !important;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.table {
+	z-index:99;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1rem 0 3rem rgba(0, 0, 0, 0.2);
+
+}
+
+table tr,
+th,
+td {
+    border-collapse: collapse;
+    font-family: 'SuncheonB' !important;
+    color:rgb(80,80,80);
+
+}
+
+.table table {
+    display: flex;
+}
+
+thead tr {
+    display: flex;
+    flex-direction: column;
+}
+
+table th, td {
+    border: .2px solid #a8a8a8;
+    width: 5rem;
+    height: 3.5rem;
+    margin:1px;
+	text-align: center;
+	vertical-align: middle;
+	    padding-top: 1rem;
+}
+table th{
+	font-size:1.5rem;
+	font-weight:bold;
+	vertical-align: middle;
+}
+tbody{
+	display:flex;
+}
+
+tr[data-day] {
+    display: flex;
+    flex-direction: column;
+}
+.top-left{
+	border-radius:0.8rem 0 0 0;
+}
+.bottom-left{
+	border-radius:0 0 0 0.8rem;
+}
+.top-right{
+	border-radius:0 0.8rem 0 0;
+}
+.bottom-right{
+	border-radius:0 0 0.8rem 0;
+}
+#map {
+  flex: 1;
+  height: 100vh;
+  background-image: url("../img/map.png");
+  background-size: cover;
+}
+
+.basket {
+  display: flex;
+  width: 80%;
+  margin-top: 1rem;
+  	border-radius:0.8rem;
+  height: 5rem;
+  border: 2px solid #ffc526;
+  justify-content: center;
+  align-items: center;
+}
+
+.basket .classes {
+  background-color: rgb(255, 210, 10);
+  font-weight: bold;
+  padding: 1rem;
+  margin: 0 5px;
+	border-radius:0.8rem;
+  cursor: move;
+  /* fallback if grab cursor is unsupported */
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.basket .classes:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
+.sub {
+  font-size: 50px;
+  text-align: center;
+  margin-top: 0.8rem;
+  width: 4rem;
+  height: 4rem;
+  background-color: rgb(39, 39, 39);
+  color: white;
+  border-radius: 50%;
+  transition: linear 0.2s;
+}
+
+.toPay {
+  position: absolute;
+  background-color: rgb(255, 175, 4);
+  font-weight: bold;
+  padding: 1rem;
+  bottom: 2rem;
+  right: 2rem;
+  cursor: pointer;
+  border: none;
+  border-radius:0.8rem;
+  font-size: 1.2rem;
+}
+
+.toPay:active {
+  background-color: rgb(255, 104, 4);
+}
+
+.toSearch {
+	z-index:999;
+  position: absolute;
+  background-color: rgb(255, 175, 4);
+  font-weight: bold;
+  padding: 1rem;
+  bottom: 2rem;
+  left: 2rem;
+  cursor: pointer;
+  border: none;
+  border-radius:0.8rem;
+  font-size: 1.2rem;
+}
+
+.toSearch:active {
+  background-color: rgb(255, 104, 4);
+}
