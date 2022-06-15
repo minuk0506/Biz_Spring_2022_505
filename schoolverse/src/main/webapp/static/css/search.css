@@ -1,19 +1,79 @@
 @import "reset.css";
 
-@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 100;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');}
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 100;
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2)
+      format("woff2"),
+    url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff)
+      format("woff"),
+    url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf)
+      format("opentype");
+}
 
-@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 300;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype');}
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 300;
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2)
+      format("woff2"),
+    url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff)
+      format("woff"),
+    url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf)
+      format("opentype");
+}
 
-@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 400;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');}
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2)
+      format("woff2"),
+    url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff)
+      format("woff"),
+    url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf)
+      format("opentype");
+}
 
-@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 500;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype');}
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 500;
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2)
+      format("woff2"),
+    url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff)
+      format("woff"),
+    url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf)
+      format("opentype");
+}
 
-@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 700;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype');}
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 700;
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2)
+      format("woff2"),
+    url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff)
+      format("woff"),
+    url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf)
+      format("opentype");
+}
 
-@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 900;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype');}
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 900;
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2)
+      format("woff2"),
+    url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff)
+      format("woff"),
+    url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf)
+      format("opentype");
+}
 
-*{
-	font-family: 'Noto Sans KR', sans-serif !important;
+* {
+  font-family: "Noto Sans KR", sans-serif !important;
 }
 
 body {
@@ -26,12 +86,12 @@ body {
 
 ::-webkit-scrollbar {
   width: 1rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   overflow: hidden;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   background-color: rgb(73, 73, 73);
   background-clip: padding-box;
   border: 3px solid transparent;
@@ -39,10 +99,9 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  padding: .2rem;
-  border-radius: .5rem;
+  padding: 0.2rem;
+  border-radius: 0.5rem;
   background-color: rgb(194, 194, 194);
-
 }
 
 .aside {
@@ -58,7 +117,7 @@ body {
 }
 
 .aside.click {
-  transform: translateX(-420px);
+  transform: translateX(-780px);
 }
 
 .aside_btn {
@@ -84,7 +143,6 @@ body {
 .search-bar select:nth-of-type(3) {
   width: 8rem;
 }
-
 
 article {
   width: 70%;
@@ -267,7 +325,6 @@ article {
 .content h3 {
   font-size: 1.5rem;
   font-weight: bold;
-
 }
 
 #add_btn {
@@ -337,7 +394,6 @@ article {
 .teacher-info img {
   width: 10rem;
   height: 10rem;
-
 }
 
 .others {
@@ -351,15 +407,15 @@ article {
   font-weight: 600;
   line-height: 2rem;
 }
-.about_class{
-	display:flex;
-	margin:1rem;
-	padding:1rem;
-	border-radius:.8rem;
-	border: 5px solid rgb(230, 230, 230);
+.about_class {
+  display: flex;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  border: 5px solid rgb(230, 230, 230);
 }
 .about_class i {
-	margin-left:auto;
+  margin-left: auto;
 }
 .btn_box {
   position: absolute;
@@ -369,17 +425,17 @@ article {
 
 .toHome {
   position: absolute;
-    width:10rem;
+  width: 10rem;
   border: none;
   bottom: 1rem;
   right: -11rem;
   padding: 1rem 2rem;
   background-color: white;
   font-weight: bold;
-  border-radius:0.8rem;
+  border-radius: 0.8rem;
   font-size: 1.2rem;
   cursor: pointer;
-  box-shadow:1px 1px 10px rgba(0,0,0,0.2);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
 }
 
 .toSchedule:active {
@@ -387,18 +443,17 @@ article {
 }
 .toSchedule {
   position: absolute;
-  width:10rem;
+  width: 10rem;
   border: none;
   bottom: 5.5rem;
   right: -11rem;
   padding: 1rem 2rem;
   background-color: white;
   font-weight: bold;
-  border-radius:0.8rem;
+  border-radius: 0.8rem;
   font-size: 1.2rem;
   cursor: pointer;
-   box-shadow:1px 1px 10px rgba(0,0,0,0.2);
-  
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
 }
 .toHome:active {
   background-color: rgb(255, 104, 4);

@@ -15,7 +15,7 @@
 </head>
 <link rel="stylesheet" href="static/css/reset.css?123412sss21234" />
 <link rel="stylesheet" href="static/css/search.css?123s22s2s123e34" />
-<link rel="stylesheet" href="static/css/basket.css?12112ss123234">
+<link rel="stylesheet" href="static/css/basket.css?12112ss123235">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 
 <body>
@@ -130,11 +130,11 @@
       </div>
     </div>
   </section>
-  
 </body>
 <script src="static/js/search.js?1231s2ssss2fdss3223"></script>
 <script src="static/js/basket.js?1231s2dssss2ss23323"></script>
 <!-- <script src="static/js/map_search.js?1212ssss2ss233123"></script> -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=40dea0e310add7b952e4c081dd860973&libraries=services,clusterer,drawing"></script>
-<script src="/static/js/kakao.js?ver=22-06-14-016"></script>
+<script src="/static/js/app.js?ver=22-06-15-001"></script>
+
 </html>
