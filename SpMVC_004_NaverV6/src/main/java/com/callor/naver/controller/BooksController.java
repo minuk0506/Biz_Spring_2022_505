@@ -90,7 +90,6 @@ public class BooksController {
 	 */
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	public String insert(BookVO bookVO) {
-		log.debug("도서정보 : " + bookVO.toString());
 		int ret = bookService.insert(bookVO);
 		// insert method 를 호출하여 데이터를 저장한 후
 		// return 된 결과에 따라 USER 에게 메시지를 보여주고자 할때

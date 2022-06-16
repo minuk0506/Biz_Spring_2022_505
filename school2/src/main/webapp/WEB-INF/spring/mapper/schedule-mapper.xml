@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+
+ <mapper namespace="com.schoolverse.app.persistence.ScheduleDao">
+ 
+ 	<select id="selectAll" resultType="ScheduleVO">
+ 		SELECT * FROM schedule
+ 	</select>
+ 	
+ 	<select id="findById" resultType="ScheduleVO">
+ 		SELECT * FROM schedule
+ 		WHERE sche_code = #{sche_code}
+ 	</select>
+ 	<select id="findScheduleByClassCode" resultType="ScheduleVO">
+        SELECT schedule.sche_code, schedule.sche_day, schedule.sche_period FROM schedule join class
+        ON schedule.sche_code = class.sche_code
+ 		WHERE class.class_code = #{class_code}
+ 	</select>
+ 	
+
+ 	
+ 	<insert id="insert" parameterType="ScheduleVO">
+ 		INSERT INTO schedule(
+		 	sche_code,
+			sche_day,
+			sche_period
+		) VALUES (
+		 	#{sche_code},
+			#{sche_day},
+			#{sche_period}
+		)
+ 	</insert>
+ 	
+ 	<!-- 
+ 	mybatis 연동한 INSERT,UPDATE 수행에서
+ 	부적절한 열유형 1111 오류가 발생하는 경우
+ 	
+ 	보통 form 에서 전체 데이터를 추가하지 않고
+ 	일부만 입력된 상태로 INSERT 에게 전달되는 경우 발생한다
+ 	
+ 	이 문제를 발생하지 않도록 하기 위하여
+ 	각 변수에 jdbcType=VARCHAR 키워드를 추가해 둔다
+ 	
+ 	이 키워드를 추가해 두면
+ 	데이터가 모두 준비되지 않은 상태로 INSERT 가 성공하게 되어
+ 	테스트를 완전하게 수행하지 못할수 도 있다
+ 	
+ 	 -->
+ 	<update id="update" parameterType="ScheduleVO">
+ 		UPDATE schedule SET
+			sche_day = #{sche_day},
+			sche_period	= #{sche_period},
+		 WHERE sche_code = #{sche_code}
+ 	</update>
+ 	
+ 	<delete id="delete">
+ 		DELETE FROM schedule WHERE sche_code = #{sche_code}
+ 	</delete>
+ 
+ 	<!-- MySQL Create 명령문 -->
+ 	<!-- 만약 tbl_books table 이 없으면 table 을 생성하라 -->
+ 	<!-- CREATE TABLE IF NOT EXISTS tbl_books  -->
+ 
+ 
+ 
+ 
+ </mapper> 

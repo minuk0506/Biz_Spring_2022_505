@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.schoolverse.app.persistence.TeacherDao">
+ 
+ 	<select id="selectAll" resultType="TeacherVo">
+ 		SELECT * FROM teacher
+ 	</select>
+ 	
+ 	<select id="findById" resultType="TeacherVo">
+ 		SELECT * FROM teacher
+ 		WHERE teacher_id = #{teacher_id}
+ 	</select>
+ 	 <select id="findByAcaTeacher" resultType="TeacherVo">
+ 		SELECT * FROM teacher
+ 		WHERE aca_teacher = #{aca_teacher}
+ 	</select>
+ 	<insert id="insert" parameterType="TeacherVo">
+ 		<selectKey keyProperty="teacher_id" resultType="Long" order="BEFORE">
+ 			SELECT teacher_id.NEXTVAL FROM DUAL	
+ 		</selectKey>
+ 		INSERT INTO teacher(
+ 		        teacher_id,
+		        teacher_name,	
+		        teacher_info,
+		        aca_teacher
+ 			) VALUES (
+ 		        #{teacher_id},
+		        #{teacher_name},	
+		        #{teacher_info},
+		        #{aca_teacher}
+ 			)
+ 	</insert>
+ 	<update id="update" parameterType="TeacherVo">
+ 		UPDATE teacher SET
+		        teacher_name = #{teacher_name},	
+		        teacher_info = #{teacher_info},
+		        aca_teacher = #{aca_teacher}
+ 		WHERE teacher_id = #{teacher_id}
+ 	</update>
+ 	<delete id="delete">
+ 		DELETE FROM teacher WHERE teacher_id = #{teacher_id}
+ 	</delete>
+ </mapper> 

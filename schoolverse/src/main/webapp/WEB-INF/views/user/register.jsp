@@ -79,7 +79,7 @@
         </div>
         <div class="block">
             <label class="w3-text-blue">학원 이미지</label>
-            <input type="file" name="aca_img" id="aca_img" placeholder="aca_img" accept="image/*">
+            <input type="file" name="aca_img" id="aca_img" placeholder="aca_img">
         </div>
 
 

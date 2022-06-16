@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.schoolverse.app.persistence.AcademyDao">
+ 
+ 	<select id="selectAll" resultType="AcademyVo">
+ 		SELECT * FROM academy
+ 	</select>
+ 	
+ 	<select id="findById" resultType="AcademyVo">
+ 		SELECT * FROM academy
+ 		WHERE aca_code = #{aca_code}
+ 	</select>
+ 	<select id="findByAcaCode" resultType="AcademyVo">
+ 		SELECT * FROM academy
+ 		WHERE aca_code = #{aca_code}
+ 	</select>
+ 	 <select id="findByAcaRegion" resultType="AcademyVo">
+ 		SELECT * FROM academy
+ 		WHERE aca_region = #{aca_region}
+ 	</select>
+ 	<select id="findByAcaSubject" resultType="AcademyVo">
+ 		SELECT * FROM academy
+ 		WHERE aca_subject = #{aca_subject}
+ 	</select>
+ 	<select id="findByAcaAge" resultType="AcademyVo">
+ 		SELECT * FROM academy
+ 		WHERE aca_age = #{aca_age}
+ 	</select>
+ 	<!-- 이클립스, sts 대문자를 소문자로 : ctrl + shift + y -->
+ 	<!-- 소문자 대문자로 : ctrl + shift + x -->
+ 	<insert id="insert" parameterType="AcademyVo">
+ 		<selectKey keyProperty="aca_code,aca_teacher" resultType="com.schoolverse.app.model.AcademyVO" order="BEFORE">
+ 			SELECT aca_code.NEXTVAL as aca_code, aca_teacher.NEXTVAL as aca_teacher FROM DUAL	
+ 		</selectKey>
+ 		INSERT INTO academy(
+ 		        aca_code,
+		        aca_name,	
+		        aca_subject,	
+		        aca_addr,
+		        aca_info,
+		        aca_img,
+		        aca_teacher,
+		        aca_region,
+		        aca_age
+ 			) VALUES (
+ 		        #{aca_code},
+		        #{aca_name},	
+		        #{aca_subject},	
+		        #{aca_addr},
+		        #{aca_info},
+		        #{aca_img},
+		        #{aca_teacher},
+		        #{aca_region},
+		        #{aca_age}
+ 			)
+ 	</insert>
+ 	<update id="update" parameterType="AcademyVo">
+ 		UPDATE academy SET
+		        aca_name = #{aca_name},	
+		        aca_subject = #{aca_subject},	
+		        aca_addr = #{aca_addr},
+		        aca_info = #{aca_info},
+		        aca_img = #{aca_img},
+		        aca_region = #{aca_region},
+		        aca_age = #{aca_age}
+ 		WHERE aca_code = #{aca_code}
+ 	</update>
+ 	<delete id="delete">
+ 		DELETE FROM academy WHERE aca_code = #{aca_code}
+ 	</delete>
+
+ 
+ 
+ </mapper> 

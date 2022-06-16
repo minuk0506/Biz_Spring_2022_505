@@ -11,8 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.schoolverse.app.model.AcademyVO;
 import com.schoolverse.app.model.BelongVO;
@@ -46,12 +44,10 @@ public class RegisterController {
 	}
 
 	@RequestMapping(value = "/user/register", method = RequestMethod.POST)
-	public String register(Model model,HttpSession session, AcademyVO acaVO, String[] teacher_name, String[] teacher_info, @RequestParam("aca_img") MultipartFile file) {
+	public String register(Model model,HttpSession session, AcademyVO acaVO, String[] teacher_name, String[] teacher_info) {
 		UserVO userVO = (UserVO) session.getAttribute("USER");
-		String ret = AcademyService.insertRegisterAndFile(file);
-		model.addAttribute("aca_code",acaVO.getAca_code());
 		academyService.insert(acaVO);
-		
+
 		BelongVO bVO = BelongVO.builder()
 				.aca_code(acaVO.getAca_code())
 				.username(userVO.getUsername())

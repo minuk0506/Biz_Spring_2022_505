@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.schoolverse.app.persistence.BelongDao">
+ 
+ 	<select id="selectAll" resultType="BelongVO">
+ 		SELECT * FROM aca_belong;
+ 	</select>
+ 	
+ 	<select id="findById" resultType="BelongVO">
+ 		SELECT * FROM aca_belong
+ 		WHERE username = #{username}
+ 	</select>
+ 	
+ 	 <select id="findAcaCodeById" resultType="Long">
+ 		SELECT aca_code FROM aca_belong
+ 		WHERE username = #{username}
+ 	</select>
+ 
+ 	<insert id="insert" parameterType="BelongVO">
+ 		INSERT INTO aca_belong(
+		 	username,
+			aca_code
+		) VALUES (
+		 	#{username},
+			#{aca_code}
+		)
+ 	</insert>
+ 	
+ 	<delete id="delete">
+ 		DELETE FROM aca_belong WHERE username = #{username} AND aca_code = #{aca_code}
+ 	</delete>
+  
+ </mapper> 

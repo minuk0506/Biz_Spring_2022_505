@@ -1,0 +1,137 @@
+@import "./reset.css";
+
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 100;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');}
+
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 300;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype');}
+
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 400;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');}
+
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 500;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype');}
+
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 700;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype');}
+
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 900;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype');}
+@font-face {
+    font-family: 'SuncheonB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/SuncheonB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+	font-family: 'Noto Sans KR', sans-serif !important;
+	text-decoration:none;
+}
+body, html{
+	width:100vw;
+	height:100vh;
+}
+
+nav {
+  width: 100vw;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom:0.5px solid rgb(230, 230, 230);
+
+}
+
+.logo {
+	display:flex;
+  margin-left: 3rem;
+  align-items: center;
+}
+.logo img{
+	width:2rem;
+}
+.logo h1{
+	margin-left:.5rem;
+	font-size:1.5rem;
+	color:#212121;
+	font-family: 'SuncheonB' !important;
+}
+
+ul{
+	margin-left:auto;
+	margin-right:3rem;
+	display:flex;
+}
+li{
+	padding:1rem 1rem;
+	margin:0 1rem;
+	border-radius:0.8rem;
+}
+
+li:nth-of-type(2){
+	background-color:orange;
+}
+li:nth-of-type(2) a{
+	color:white;
+}
+
+a{
+	font-family: 'SuncheonB' !important;
+	font-size:1.5rem;
+	color:orange;
+}
+/*헤더 끝*/
+/*주 내용*/
+.section {
+  width: 90vw;
+  margin: auto;
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-bar {
+  width: 90%;
+  height: 100px;
+  margin: auto;
+  padding: 2rem 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items:center;
+  border: 5px solid rgb(230, 230, 230);
+  border-radius:50px;
+}
+
+.search-detail div {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  
+  border: none;
+}
+
+.search-wall {
+	height:3rem;
+  border: 1px solid #b1b1b1;
+}
+
+.select-main {
+  width: 100%;
+  height: 100%;
+  font-family: 'SuncheonB' !important;
+  font-size: 2rem;
+  padding:1rem;
+  border: none;
+}
+
+#artboard {
+position:fixed;
+z-index:-1;
+top:0;
+right:0;
+
+}
+
+.search-button {
+  width: 8rem;
+  height: 2rem;
+  display: flex;
+  border:none;
+  background-color:transparent;
+  justify-content: center;
+  align-items: center;
+  cursor:pointer;
+}

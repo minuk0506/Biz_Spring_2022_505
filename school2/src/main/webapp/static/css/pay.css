@@ -1,0 +1,169 @@
+@import 'reset.css';
+
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 100;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');}
+
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 300;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype');}
+
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 400;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');}
+
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 500;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype');}
+
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 700;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype');}
+
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 900;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype');}
+@font-face {
+    font-family: 'SuncheonB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/SuncheonB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+	font-family: 'Noto Sans KR', sans-serif !important;
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+  border-radius: .5rem;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: .5rem;
+  background-color: rgb(73, 73, 73);
+  background-clip: padding-box;
+  border: 3px solid transparent;
+  box-shadow: inset 0px 0px 5px rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar-track {
+  padding: .2rem;
+  border-radius: .5rem;
+  background-color: rgb(194, 194, 194);
+
+}
+
+body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.pay_aside {
+  position: relative;
+  background-color: rgb(231, 231, 231);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+}
+
+.pay-button {
+  padding: 1rem 2rem;
+  bottom: 20%;
+  left: 40%;
+  border: none;
+}
+
+.pay-button:active {
+  background-color: rgb(219, 219, 219);
+}
+
+#edu_list {
+  margin: 40px;
+  background-color: white;
+  position: relative;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+div.classes {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255);
+  min-height: 5rem;
+  margin: 0.5rem 1rem;
+  border-radius:0.8rem;
+  box-shadow: 0px 0px 20px rgba(0, 0, 60, 0.1);
+  padding: 1rem;
+}
+
+div.classes div.content-section {
+  margin: 0 1rem;
+}
+
+.sub {
+  font-size: 50px;
+  text-align: center;
+  margin-top: 0.8rem;
+  width: 4rem;
+  height: 4rem;
+  background-color: rgb(39, 39, 39);
+  color: white;
+  border-radius: 50%;
+  transition: linear 0.2s;
+}
+
+.sub:hover {
+  cursor: pointer;
+  background-color: red;
+}
+
+
+.payment_wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#box {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 70%;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(219, 219, 219);
+  	border-radius: 0.8rem;
+}
+
+#box div {
+  display: flex;
+  width: 80%;
+  height: 50%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  	border-radius: 0.8rem;
+}
+#box div h1{
+	    font-family: 'SuncheonB' !important;
+	font-size:5rem !important;
+}
+
+#box .pay-button {
+    margin-top: 2rem;
+  	font-family: 'SuncheonB' !important;
+	font-size:2rem !important;
+	border-radius: 0.8rem;
+	box-shadow: 1rem 1rem 3rem rgba(0,0,0,0.2);
+	cursor:pointer;
+}
+
+.backToSchedule {
+  position: absolute;
+  background-color: rgb(255, 175, 4);
+  font-weight: bold;
+  padding: 1rem;
+  bottom: 2rem;
+  right: -11rem;
+  width: 10rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  border-radius:0.8rem;
+  border: none;
+}
+
+.backToSchedule:active {
+  background-color: rgb(255, 104, 4);
+}
