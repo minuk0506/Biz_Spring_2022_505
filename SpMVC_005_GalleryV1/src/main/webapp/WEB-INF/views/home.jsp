@@ -16,6 +16,7 @@
 
 <body>
 	<h1>반갑</h1>
+	<img src="${rootPath}/upload.${FILE}" alt="지금은 안보임">
 	<a href="${rootPath}/bbs/write">게시판 글쓰기</a>
 </body>
 </html>

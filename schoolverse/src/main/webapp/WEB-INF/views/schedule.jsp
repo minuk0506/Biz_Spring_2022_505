@@ -130,9 +130,8 @@
       <div class="basket">
       <c:forEach items="${CLASS}" var="CLASS" varStatus="status">
       <c:set var="SCHE" value="${SCHE}"/>
-          <div
-            class="classes"
-            data-schedule="${SCHE[status.index]}" data-class_code="${ CLASS.class_code}">
+          <div class="classes"
+            data-schedule="${SCHE[status.index]}" data-class_code="${CLASS.class_code}">
             ${CLASS.class_name}
           </div>
        </c:forEach>
@@ -148,6 +147,5 @@
         돌아가기
       </button>
   </body>
-  <script src="static/js/schedule.js?123212sssss34"></script>
-  <script src="static/js/map_schedule.js?122sssss12341234"></script>
+  <script src="static/js/schedule.js?1232fffff12fdsssss34"></script>
 </html>

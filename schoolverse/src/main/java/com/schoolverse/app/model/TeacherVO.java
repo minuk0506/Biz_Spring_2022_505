@@ -1,9 +1,9 @@
 package com.schoolverse.app.model;
 
-
-import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -12,11 +12,10 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class HomeVO {
-
-	private String space;
-	private String subject;
-	private String age;
-	private String cost;
-	private String search;
+@Builder
+public class TeacherVO {
+	private long teacher_id;
+	private String teacher_name;
+	private String teacher_info;
+	private long aca_teacher;
 }

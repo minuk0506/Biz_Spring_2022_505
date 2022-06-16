@@ -23,23 +23,29 @@
  		SELECT sche_code FROM class
  		WHERE class_code = #{class_code}
  	</select>
+ 	
  	<!-- 이클립스, sts 대문자를 소문자로 : ctrl + shift + y -->
  	<!-- 소문자 대문자로 : ctrl + shift + x -->
  	<insert id="insert" parameterType="ClassVo">
+ 	 	<selectKey keyProperty="class_code,sche_code" resultType="com.schoolverse.app.model.ClassVO" order="BEFORE">
+ 			SELECT class_code.NEXTVAL as class_code, sche_code.NEXTVAL as sche_code FROM DUAL
+ 		</selectKey>
  		INSERT INTO class(
  		        class_code,
 		        aca_code,	
 		        class_name,	
 		        class_subject,	
 		        class_fee,		
-		        sche_code	
+		        sche_code,
+		        class_teacher
  			) VALUES (
  		        #{class_code},
 		        #{aca_code},	
 		        #{class_name},	
 		        #{class_subject},	
-		        #{class_fee},		
-		        #{sche_code}	
+		        #{class_fee},
+		        #{sche_code},
+		        #{class_teacher}
  			)
  	</insert>
  	<update id="update" parameterType="ClassVo">
@@ -48,7 +54,8 @@
 		        class_name = #{class_name},	
 		        class_subject = #{class_subject},	
 		        class_fee = #{class_fee},		
-		        sche_code = #{sche_code}	
+		        sche_code = #{sche_code},
+		        class_teacher = #{class_teacher}
  		WHERE class_code = #{class_code}
  	</update>
  	<delete id="delete">

@@ -1,5 +1,9 @@
 package com.minuk.test.service;
 
-public class TestService {
+import com.minuk.test.persistance.TestDao;
 
+public interface TestService{
+
+	
+	
 }

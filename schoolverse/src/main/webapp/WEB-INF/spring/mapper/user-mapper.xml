@@ -35,14 +35,16 @@
 		        email,	
 		        name,	
 		        nickname,		
-		        role	
+		        role,
+		        aca_code	
  			) VALUES (
  		        #{username},
 		        #{password},	
 		        #{email},	
 		        #{name},	
 		        #{nickname},		
-		        #{role}	
+		        #{role},
+		        #{aca_code}	
  			)
  	</insert>
  	<update id="update" parameterType="UserVO">
@@ -51,7 +53,8 @@
 		        email = #{email},	
 		        name = #{name},	
 		        nickname = #{nickname},		
-		        role = #{role}	
+		        role = #{role},	
+		        aca_code = #{aca_code}	
  		WHERE username = #{username}
  	</update>
  	<delete id="delete">

@@ -6,11 +6,28 @@
 <mapper namespace="com.minuk.test.persistance.TestDao">
 	
 	<select id="selectAll" resultType="TestDao">
-		SELECT sc_num, sc_label, sc_division
-		FROM tbl_sch
-		WHERE SUBSTR(sc_num,1,2) = #{sc_num}
-		GROUP BY sc_num, sc_label, sc_division
-		ORDER BY sc_num
+		SELECT *
+		FROM tbl_student
 	</select>
 	
+	<select id="findById" resultType="TestDao">
+		SELECT st_num
+		FROM tbl_student
+	</select>
+	
+	<select id="insert" resultType="TestDao">
+		INSERT INTO tbl_student(
+			st_num,
+			st_name,
+			st_grade,
+			st_tel,
+			st_addr
+		) VALUE(
+			#(st_num),
+			#(st_name),
+			#(st_grade),
+			#(st_tel),
+			#(st_addr)
+		)
+	</select>
 </mapper> 

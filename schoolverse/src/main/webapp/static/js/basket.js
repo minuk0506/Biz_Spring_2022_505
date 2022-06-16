@@ -6,17 +6,16 @@ const $sum = document.querySelector(".sum");
 let classes = document.querySelectorAll(".classes");
 const sub_wrapper = document.querySelector(".sub-wrapper");
 
-
 let sum = 0;
-
-
 
 sub_wrapper?.addEventListener("click", (e) => {
   const target = e.target;
 
-  fetch(`/search/aca_info?aca_code=${target.closest(".classes").dataset.aca_code}`)
-    .then(res => res.json())
-    .then(json => {
+  fetch(
+    `/search/aca_info?aca_code=${target.closest(".classes").dataset.aca_code}`
+  )
+    .then((res) => res.json())
+    .then((json) => {
       const aca_name = document.querySelector(".aca_name");
       const aca_info = document.querySelector(".aca_info");
       const others = document.querySelector(".others");
@@ -27,20 +26,25 @@ sub_wrapper?.addEventListener("click", (e) => {
       category_class.textContent = "수업";
       others.appendChild(category_class);
 
-      json[1].map(item => {
+      json[1].map((item) => {
         others.innerHTML += `
         <div class="about_class">
         <div>
         <h3>${item.class_name}</h3>
         <hr/>
-        <h3>수강료 : ${item.class_fee.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원/월</h3>
+        <h3>수강료 : ${item.class_fee
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원/월</h3>
         </div>
-        <i class="xi-plus xi-3x add_basket" id="add_btn" data-c_code="${item.class_code}" onclick="location.href='/search/basket_add?c_code=${item.class_code}'" />
         </div>
+        <i class="xi-plus xi-3x add_basket" id="add_btn" data-c_code="${
+          item.class_code
+        }" onclick="location.href='/search/basket_add?c_code=${
+          item.class_code
+        }'" />
         `;
-      })
+      });
     });
-
 
   // 장바구니 숨기기
   if (e.target.className !== "sub") {
@@ -51,12 +55,11 @@ sub_wrapper?.addEventListener("click", (e) => {
   }
 });
 
-
 for (let c of classes) {
   let intPayment = Number.parseInt(c.dataset.expense);
   sum += intPayment;
 }
-$sum.innerHTML = `총액 : ${sum.toLocaleString('ko-KR')}원/월`;
+$sum.innerHTML = `총액 : ${sum.toLocaleString("ko-KR")}원/월`;
 
 for (let node of sub_wrapper.childNodes) {
   // 공백 텍스트 없애기
@@ -84,19 +87,19 @@ basket_wrapper.childNodes[1].addEventListener("click", () => {
   basket_button.style.display = "flex";
 
   if (aca_wrapper.className === "section") {
-
     basket_button.style.left = null;
     basket_button.style.right = "5rem";
   } else {
     basket_button.style.left = "6rem";
     basket_button.style.right = null;
   }
-
 });
 
 for (let sub of subs) {
   sub.addEventListener("click", (e) => {
-    fetch(`/search/basket_delete?class_code=${e.target.parentNode.dataset.class_code}`)
+    fetch(
+      `/search/basket_delete?class_code=${e.target.parentNode.dataset.class_code}`
+    );
 
     sub_wrapper.removeChild(e.target.parentNode); // 장바구니 빼기
 
@@ -107,7 +110,7 @@ for (let sub of subs) {
       let intPayment = Number.parseInt(c.dataset.expense);
       sum += intPayment;
     }
-    $sum.innerHTML = `총액 : ${sum.toLocaleString('ko-KR')}원/월`;
+    $sum.innerHTML = `총액 : ${sum.toLocaleString("ko-KR")}원/월`;
 
     if (!sub_wrapper.hasChildNodes()) {
       // 장바구니 내용이 없으면 비었다고 표시
@@ -119,7 +122,5 @@ for (let sub of subs) {
       count.style.display = "inline-block";
       count.textContent = sub_wrapper.childNodes.length;
     }
-
   });
 }
-

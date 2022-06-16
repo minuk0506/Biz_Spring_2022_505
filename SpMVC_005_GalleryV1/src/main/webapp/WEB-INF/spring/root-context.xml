@@ -4,5 +4,15 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	<!-- 
+	여기는 프로젝트 전반에서 component(Controller, Service, Dao) 와 함께 
+	다양한 package 의 클래스들이 공통으로 사용할 bean 을 설정하는 부분
+	여기에 작성하는 bean 중에 대표적인 부분이 파일 업로드와 관련된 bean
+	-->
+	<!-- maxUploadSize와 maxUploadSizeperfile 은 크기를 제한하여 서버에대한 부하를 줄이는 등의 역할 -->
+	<!-- value값에 파일 크기를 넣는다. 2000000=2mb -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSizePerFile" value="2000000"/>
+		<property name="maxUploadSize" value="2000000"/>
+	</bean>
 </beans>

@@ -10,6 +10,6 @@ import lombok.ToString;
 @ToString
 @Builder
 public class BasketVO {
-	private String c_code;
+	private long c_code;
 	private String u_id;
 }
