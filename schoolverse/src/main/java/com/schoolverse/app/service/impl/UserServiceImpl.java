@@ -26,11 +26,6 @@ public class UserServiceImpl implements UserService{
 	public int join(UserVO userVO) {
 		
 		List<UserVO> users = dao.selectAll();
-		if(users == null || users.size() < 1) {
-			userVO.setRole("ADMIN");
-		} else {
-			userVO.setRole("GUEST");
-		}
 		
 		// password 를 암호화 하자
 		String planPassword =  userVO.getPassword();

@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>schoolverse</title>
-    <link rel="stylesheet" href="static/css/pay.css?11111ss111">
+    <link rel="stylesheet" href="static/css/pay.css?1111ssfffdf1ss111">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
        <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
 </head>
@@ -29,7 +29,7 @@
       </div>
 </c:forEach>
         </div>
-        <button class="backToSchedule" onclick="location.href = '/schedule' ">돌아가기</button>
+        <button class="backToSchedule" onclick="window.history.back()">돌아가기</button>
     </aside>
     <div class="payment_wrapper">
         <div id="box">
@@ -40,6 +40,6 @@
         </div>
     </div>
 </body>
-<script src="static/js/pay.js?12saaasss132"></script>
+<script src="static/js/pay.js?12saaasdddsssdsfsdsdf1ss32"></script>
 
 </html>

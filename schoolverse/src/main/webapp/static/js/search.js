@@ -10,10 +10,6 @@ const academy = document.querySelector(".academy");
 
 const url = new URL(window.location.href);
 const urlParams = url.searchParams;
-if (urlParams.get("result") === "USED") {
-  alert("이미 추가된 수업입니다.");
-  location.href.search = "";
-}
 
 const addCart = (c_code) => {
   fetch(`/search/basket_add?c_code=${c_code}`)
@@ -22,6 +18,8 @@ const addCart = (c_code) => {
       console.log(result);
       if (result === "OK") {
         alert("추가되었습니다.");
+        location.reload(true);
+
       } else {
         alert("이미 추가된 수업입니다.");
       }
@@ -46,7 +44,7 @@ academy?.addEventListener("click", (e) => {
       const category_class = document.createElement("h2");
       category_class.textContent = "수업";
       others.appendChild(category_class);
-      console.log(json);
+
       json[1].map((item) => {
         others.innerHTML += `
         <div class="about_class">
@@ -54,23 +52,24 @@ academy?.addEventListener("click", (e) => {
         <h3>${item.class_name}</h3>
         <hr/>
         <h3>수강료 : ${item.class_fee
-          .toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원/월</h3>
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원/월</h3>
         </div>
         </div>
-        <i class="xi-plus xi-3x add_basket" id="add_btn" data-c_code="${
-          item.class_code
-        }" onclick="addCart('${item.class_code}')" />
+        <i class="xi-plus xi-3x add_basket" id="add_btn" data-c_code="${item.class_code
+          }" onclick="addCart('${item.class_code}')" />
         `;
       });
 
       json[2].map((item) => {
         teacher.innerHTML += `
+        <div>
         <img src="static/img/teacher2.png" />
         <div>
           <h3>${item.teacher_name}</h3>
           <p>${item.teacher_info}</p>
         </div>
+        <div>
         `;
       });
     });

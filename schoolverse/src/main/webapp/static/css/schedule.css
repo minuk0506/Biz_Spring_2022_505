@@ -61,13 +61,14 @@ table th, td {
     margin:1px;
 	text-align: center;
 	vertical-align: middle;
-	    padding-top: 1rem;
+	padding-top: 1rem;
 }
 table th{
 	font-size:1.5rem;
 	font-weight:bold;
 	vertical-align: middle;
 }
+
 tbody{
 	display:flex;
 }
@@ -75,6 +76,10 @@ tbody{
 tr[data-day] {
     display: flex;
     flex-direction: column;
+}
+
+table td{
+	transition:linear .2s;
 }
 .top-left{
 	border-radius:0.8rem 0 0 0;
@@ -91,8 +96,6 @@ tr[data-day] {
 #map {
   flex: 1;
   height: 100vh;
-  background-image: url("../img/map.png");
-  background-size: cover;
 }
 
 .basket {
@@ -138,12 +141,13 @@ tr[data-day] {
 }
 
 .toPay {
+	z-index:99;
   position: absolute;
   background-color: rgb(255, 175, 4);
   font-weight: bold;
   padding: 1rem;
   bottom: 2rem;
-  right: 2rem;
+  left: 42%;
   cursor: pointer;
   border: none;
   border-radius:0.8rem;
@@ -170,4 +174,12 @@ tr[data-day] {
 
 .toSearch:active {
   background-color: rgb(255, 104, 4);
+}
+.notice{
+z-index:999;
+  position: fixed;
+  font-weight: bold;
+  bottom: 2rem;
+  right: 2rem;
+  font-size: 1.2rem;
 }

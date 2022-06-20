@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.schoolverse.app.model.BelongVO;
 import com.schoolverse.app.model.UserVO;
+import com.schoolverse.app.service.BelongService;
 import com.schoolverse.app.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -25,25 +27,19 @@ public class UserController {
 	
 	@RequestMapping(value="/join",method=RequestMethod.GET)
 	public String join(Model model) {
-		model.addAttribute("LAYOUT","JOIN");
 		return null;
 	}
 	@RequestMapping(value="/join",method=RequestMethod.POST)
 	public String join(UserVO userVO) {
 		
-		log.debug("회원정보 : {}", userVO.toString());
-		
 		userService.join(userVO);
-		
 		
 		return "redirect:/user/login";
 	}
 
 
 	@RequestMapping(value="/login",method=RequestMethod.GET)
-	public String login(String error, Model model) {
-		model.addAttribute("error",error);
-		model.addAttribute("LAYOUT","LOGIN");
+	public String login(Model model) {
 		return null;
 	}
 	
@@ -51,6 +47,7 @@ public class UserController {
 	public String login(UserVO userVO, Model model, HttpSession session) {
 		
 		UserVO loginUser = userService.findById(userVO.getUsername());
+		
 		if(loginUser == null) {
 			model.addAttribute("error","USERNAME_FAIL");
 			return "redirect:/user/login";
@@ -60,7 +57,9 @@ public class UserController {
 			model.addAttribute("error","PASSWORD_FAIL");
 			return "redirect:/user/login";
 		}
+
 		session.setAttribute("USER", loginUser);
+		
 		return "redirect:/";
 	}
 	

@@ -56,10 +56,15 @@
 	<input name="name" id="name" placeholder="NAME" class="w3-input w3-border">
 	<div class="w3-container error"></div>
 	
-	<label class="w3-text-blue">필명</label>
+	<label class="w3-text-blue">별명</label>
 	<input name="nickname" id="nickname" placeholder="NICK NAME"  class="w3-input w3-border">
 	<div class="w3-container error"></div>
 	
+	<label class="w3-text-blue">권한</label>
+	<select name="role">
+		<option value="GUEST">학생</option>
+		<option value="ADMIN">학원</option>
+	</select>
 	<button class="w3-button w3-blue" id="btn-join" type="button">회원가입</button>
 
 </form>

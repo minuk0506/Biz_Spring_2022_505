@@ -34,17 +34,15 @@
 		        password,	
 		        email,	
 		        name,	
-		        nickname,		
-		        role,
-		        aca_code	
+		        nickname,
+		        role
  			) VALUES (
  		        #{username},
 		        #{password},	
 		        #{email},	
 		        #{name},	
-		        #{nickname},		
-		        #{role},
-		        #{aca_code}	
+		        #{nickname},	
+		        #{role}
  			)
  	</insert>
  	<update id="update" parameterType="UserVO">

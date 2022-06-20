@@ -13,9 +13,9 @@
      <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
   <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=nanq2sq1z7"></script>
 </head>
-<link rel="stylesheet" href="static/css/reset.css?12341ssf2ff21234" />
-<link rel="stylesheet" href="static/css/search.css?123ffssdfffs123e34" />
-<link rel="stylesheet" href="static/css/basket.css?12112sfdf123234">
+<link rel="stylesheet" href="static/css/reset.css?123d41sf2f21234" />
+<link rel="stylesheet" href="static/css/search.css?123fsddfffs123e34" />
+<link rel="stylesheet" href="static/css/basket.css?121sfdfd123234">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 
 <body>
@@ -24,12 +24,41 @@
       <div id="nav">
       
         <form>
-          <div class="search-bar">
-            <input/>
-            <button onclick="location.href = '/aca_name_search'">
-              <i class="xi-search xi-2x"></i>
-            </button>
-          </div>
+<div class="search-bar">
+      <!--검색창-->
+      <div class="search-detail">
+        <select class="select-main" name="aca_region">
+          <option value="">지역</option>
+          <option value="광산구">광산구</option>
+          <option value="남구">남구</option>
+          <option value="동구">동구</option>
+          <option value="북구">북구</option>
+          <option value="서구">서구</option>
+        </select>
+      </div>
+      <div class="search-wall"></div>
+      <div class="search-detail">
+        <select class="select-main" name="aca_subject">
+        <option value="">과목</option>
+          <option value="입시">입시</option>
+          <option value="영어">영어</option>
+          <option value="예체능">예체능</option>
+          <option value="기타">기타</option>
+        </select>
+      </div>
+      <div class="search-wall"></div>
+      <div class="search-detail">
+        <select class="select-main" name="aca_age">
+        <option value="">나이</option>
+          <option value="학생">학생</option>
+          <option value="성인">성인</option>
+        </select>
+      </div>
+      <div class="search-wall"></div>
+      <button class="search-button" onclick="location.href = '/search' ">
+        <i class="xi-search xi-2x"></i>
+      </button>
+    </div>
         </form>
         
       </div>
@@ -40,8 +69,13 @@
 		<c:forEach items="${SEARCH}" var="SEARCH">
             <tr >
               <th data-aca_code = "${SEARCH.aca_code}">${SEARCH.aca_name}</th>
-            </tr>
+            </tr >
 		</c:forEach>
+            <c:if test="${ERROR == 'EMPTY'}">
+            <tr >
+              <th style="color:red;font-weight:bold;">검색 결과가 없습니다.</th>
+            </tr >
+            </c:if>
           </table>
         </div>
       </div>
@@ -121,7 +155,7 @@
   </section>
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2e1d9784e6d6ac580791dd4e2c958267&libraries=services"></script>
 </body>
-<script src="static/js/search.js?12hhffffssffffs3sss22116"></script>
-<script src="static/js/basket.js?1231fffsssssfs23323"></script>
-<script src="static/js/map.js?1212ssffssssf4123"></script>
+<script src="static/js/search.js?12hhffddsdffdfssf3fsss22116"></script>
+<script src="static/js/basket.js?1231ffssdffdf12s23323"></script>
+<script src="static/js/map.js?1212ssfssdf1dfdff123"></script>
 </html>

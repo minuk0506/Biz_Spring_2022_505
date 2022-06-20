@@ -138,6 +138,8 @@ table.addEventListener('drop', (e) => {
     if (e.target.className === "sub") {
         if (dragged.parentNode.className === 'basket') {
             dragged.parentNode.removeChild(dragged);
+            fetch(`/search/basket_delete?class_code=${dragged.dataset.class_code}`)
+
             for (let t of td) {
                 t.style.backgroundColor = ''; // 장바구니에 있는 학원 지우고 배경색 지우기
             }

@@ -27,7 +27,7 @@ public class HomeController {
 	private AcademyService acaService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {
+	public String home() {
 
 		return "home";
 	}

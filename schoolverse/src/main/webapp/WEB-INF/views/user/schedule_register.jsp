@@ -68,5 +68,5 @@
 
 
 </body>
-<script src="/static/js/schedule_register.js?assgggs44ssfffaassdsssf"></script>
+<script src="/static/js/schedule_register.js?asssssgasdsssf"></script>
 </html>

@@ -3,7 +3,7 @@ const schedule_add = document.querySelector(".schedule_add");
 let counter = 0;
 
 schedule_add.addEventListener("click", () => {
-  schedule_block.innerHTML += `
+    schedule_block.innerHTML += `
     <div>
     <select name="sche_day">
         <option id="sche_day" value="mon">월</option>
@@ -56,8 +56,14 @@ schedule_add.addEventListener("click", () => {
             <input type="checkbox" name="sche_period" id="sche_period" value="${counter};18:00">
         </div>
     </div>
+    <button type="button" onclick="delete_period(this)">삭제</button>
+    <hr/>
 </div>
-<hr/>
     `;
-  counter++;
+    counter++;
 });
+
+const delete_period = (e) => {
+    const target = e.parentNode;
+    target.parentNode.removeChild(target);
+}

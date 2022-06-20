@@ -8,6 +8,8 @@ const sub_wrapper = document.querySelector(".sub-wrapper");
 
 let sum = 0;
 
+
+
 sub_wrapper?.addEventListener("click", (e) => {
   const target = e.target;
 
@@ -19,9 +21,12 @@ sub_wrapper?.addEventListener("click", (e) => {
       const aca_name = document.querySelector(".aca_name");
       const aca_info = document.querySelector(".aca_info");
       const others = document.querySelector(".others");
+      const teacher = document.querySelector(".teacher-info");
       aca_name.textContent = `${json[0].aca_name}`;
       aca_info.textContent = `${json[0].aca_info}`;
       others.textContent = "";
+      teacher.textContent = "";
+
       const category_class = document.createElement("h2");
       category_class.textContent = "수업";
       others.appendChild(category_class);
@@ -33,15 +38,24 @@ sub_wrapper?.addEventListener("click", (e) => {
         <h3>${item.class_name}</h3>
         <hr/>
         <h3>수강료 : ${item.class_fee
-          .toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원/월</h3>
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원/월</h3>
         </div>
         </div>
-        <i class="xi-plus xi-3x add_basket" id="add_btn" data-c_code="${
-          item.class_code
-        }" onclick="location.href='/search/basket_add?c_code=${
-          item.class_code
-        }'" />
+        <i class="xi-plus xi-3x add_basket" id="add_btn" data-c_code="${item.class_code
+          }" onclick="addCart('${item.class_code}')" />
+        `;
+      });
+
+      json[2].map((item) => {
+        teacher.innerHTML += `
+        <div>
+        <img src="static/img/teacher2.png" />
+        <div>
+          <h3>${item.teacher_name}</h3>
+          <p>${item.teacher_info}</p>
+        </div>
+        <div>
         `;
       });
     });
@@ -105,13 +119,12 @@ for (let sub of subs) {
 
     classes = document.querySelectorAll(".classes");
     sum = 0;
-    console.log(classes);
+
     for (let c of classes) {
       let intPayment = Number.parseInt(c.dataset.expense);
       sum += intPayment;
     }
     $sum.innerHTML = `총액 : ${sum.toLocaleString("ko-KR")}원/월`;
-
     if (!sub_wrapper.hasChildNodes()) {
       // 장바구니 내용이 없으면 비었다고 표시
       const h1 = document.createElement("h1");

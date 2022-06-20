@@ -55,6 +55,7 @@ public class RegisterController {
 		belongService.insert(bVO);
 		
 		Long aca_teacher = acaVO.getAca_teacher();
+		
 		List<Long> teacher_id_list = new ArrayList<>();
 
 		for (int i = 0; i < teacher_name.length; i++) {
@@ -63,7 +64,7 @@ public class RegisterController {
 			teacherService.insert(vo);
 			teacher_id_list.add(vo.getTeacher_id());
 		}
-		return null;
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value = "/user/schedule_register", method = RequestMethod.GET)
@@ -81,8 +82,8 @@ public class RegisterController {
 		System.out.println(class_name);
 		System.out.println(class_subject);
 		System.out.println(class_fee);
-		System.out.println(Arrays.toString(sche_day) );
-		System.out.println(Arrays.toString(sche_period) );
+		System.out.println(Arrays.toString(sche_day));
+		System.out.println(Arrays.toString(sche_period));
 		System.out.println();
 		System.out.println();
 		
@@ -107,13 +108,8 @@ public class RegisterController {
 					}
 				}
 			}
-		 
-
-
-
-			
 	
 		
-		return null;
+		return "redirect:/";
 	}
 }

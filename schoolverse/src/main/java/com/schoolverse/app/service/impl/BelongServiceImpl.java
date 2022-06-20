@@ -21,7 +21,7 @@ public class BelongServiceImpl implements BelongService{
 
 	@Override
 	public BelongVO findById(String id) {
-		return null;
+		return dao.findById(id);
 	}
 
 	@Override

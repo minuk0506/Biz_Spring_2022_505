@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>schoolversee</title>
-    <link rel="stylesheet" href="static/css/schedule.css?12sdffff2ss313" />
+    <link rel="stylesheet" href="static/css/schedule.css?12fffsddsfsdf2ss313" />
        <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=nanq2sq1z7"></script>
   </head>
@@ -143,9 +143,12 @@
       <button class="toPay" onclick="location.href = '/pay' ">
         결제하기
       </button>
-      <button class="toSearch" onclick="location.href = '/search' ">
+      <button class="toSearch" onclick="location.href = document.referrer;">
         돌아가기
       </button>
+      <h1 class="notice">마우스 클릭으로 거리를 확인하세요</h1>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2e1d9784e6d6ac580791dd4e2c958267&libraries=services"></script>
   </body>
-  <script src="static/js/schedule.js?1232fffff12fdsssss34"></script>
+  <script src="static/js/schedule.js?1232fffssdfdfssfsdddfdddf2ss34"></script>
+  <script src="static/js/schedule_map.js?1232dsdfdfssfdfsddddf2fsssss34"></script>
 </html>

@@ -68,95 +68,14 @@ teacher_add?.addEventListener("click", (e) => {
         <label class="w3-text-blue">선생님 소개</label>
         <input name="teacher_info" id="teacher_info" placeholder="teacher_info">
     </div>
+    <button type="button" onclick = "teacher_delete(this)">삭제</button>
+    <hr/>
 </div>
-<hr/>
     `;
 });
 
-class_add?.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  _class.push(document.createElement("div"));
-  class_block.appendChild(_class[_class_counter]);
-  _class[_class_counter].innerHTML += `
-<div>
-    <div>
-        <label class="w3-text-blue">수업이름</label>
-        <input name="class_name" id="class_name" placeholder="class_name">
-    </div>
-    <div>
-        <label class="w3-text-blue">수업과목</label>
-        <input name="class_subject" id="class_subject" placeholder="class_subject">
-    </div>
-    <div>
-        <label class="w3-text-blue">수업료</label>
-        <input name="class_fee" id="class_fee" placeholder="class_fee">
-    </div>
-    <button type="button" class="schedule_add" onclick="add_period(${_class_counter})">수업시간 추가</button>
-    <div class="schedule_block">
-    </div>
-</div>
-<hr/>
-    `;
-  _class_counter++;
-});
-
-const add_period = (c) => {
-  _class[c].innerHTML += `
-    <div>
-    <select name="sche_day">
-        <option id="sche_day" value="mon">월</option>
-        <option id="sche_day" value="tue">화</option>
-        <option id="sche_day" value="wed">수</option>
-        <option id="sche_day" value="thu">목</option>
-        <option id="sche_day" value="fri">금</option>
-        <option id="sche_day" value="sat">토</option>
-        <option id="sche_day" value="sun">일</option>
-    </select>
-    <div class="schedule-period">
-        <div>
-            <label>09:00</label>
-            <input type="checkbox" name="sche_period" id="sche_period" value="${c};${_sche_counter};09:00">
-        </div>
-        <div>
-            <label>10:00</label>
-            <input type="checkbox" name="sche_period" id="sche_period" value="${c};${_sche_counter};10:00">
-        </div>
-        <div>
-            <label>11:00</label>
-            <input type="checkbox" name="sche_period" id="sche_period" value="${c};${_sche_counter};11:00">
-        </div>
-        <div>
-            <label>12:00</label>
-            <input type="checkbox" name="sche_period" id="sche_period" value="${c};${_sche_counter};12:00">
-        </div>
-        <div>
-            <label>13:00</label>
-            <input type="checkbox" name="sche_period" id="sche_period" value="${c};${_sche_counter};13:00">
-        </div>
-        <div>
-            <label>14:00</label>
-            <input type="checkbox" name="sche_period" id="sche_period" value="${c};${_sche_counter};14:00">
-        </div>
-        <div>
-            <label>15:00</label>
-            <input type="checkbox" name="sche_period" id="sche_period" value="${c};${_sche_counter};15:00">
-        </div>
-        <div>
-            <label>16:00</label>
-            <input type="checkbox" name="sche_period" id="sche_period" value="${c};${_sche_counter};16:00">
-        </div>
-        <div>
-            <label>17:00</label>
-            <input type="checkbox" name="sche_period" id="sche_period" value="${c};${_sche_counter};17:00">
-        </div>
-        <div>
-            <label>18:00</label>
-            <input type="checkbox" name="sche_period" id="sche_period" value="${c};${_sche_counter};18:00">
-        </div>
-    </div>
-</div>
-<hr/>
-    `;
-  _sche_counter++;
-};
+const teacher_delete = (e) => {
+  console.log(e);
+  const target = e.parentNode;
+  target.parentNode.removeChild(target);
+}

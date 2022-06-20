@@ -69,12 +69,16 @@ body {
 
 #edu_list {
   margin: 40px;
+  min-width: 350px;
   background-color: white;
   position: relative;
   overflow: scroll;
   overflow-x: hidden;
 }
-
+#edu_list h1{
+	font-size:2rem;
+	font-weight:bold;
+}
 div.classes {
   display: flex;
   justify-content: space-between;

@@ -36,7 +36,7 @@
           	<li><a href="/user/logout">로그아웃</a></li>
           </ul>
           </c:if>
-          <c:if test="${USER.role == 'ADMIN' }">
+          <c:if test="${USER.role == 'ADMIN'}">
                     <ul>
             <li><a href="/user/register">학원등록하기</a></li>
             <li><a href="/user/schedule_register">수업등록하기</a></li>
