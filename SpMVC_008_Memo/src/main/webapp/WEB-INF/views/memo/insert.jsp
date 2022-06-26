@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <c:set value="${pageContext.request.contextPath}" var="rootPath" />
 
 <!DOCTYPE html>
@@ -15,16 +16,15 @@
 </head>
 
 <body>
-<h1>메모추가</h1>
-	<div>
-		<form method="POST" enctype="multipart/form-data">
-			<input name="m_upauthor" placeholder="작성자"/>
-			<input name="m_update" type="date" value="${memo.m_date}" hidden="hidden"/>
-			<input name="m_uptime" type="time" value="${memo.m_time}" hidden="hidden"/>
-			<textarea name="m_upmemo" placeholder="내용"></textarea>
-			<input type="file" name="m_upimage" multiple="multiple" accept="images/*" />
-			<button>저장</button>
-		</form>
-	</div>
+	<h1>메모추가</h1>
+	<form:form modelAttribute="memoVO" enctype="multipart/form-data">
+		<form:input path="m_author" placeholder="작성자" />
+		<form:input path="m_date" value="${memo.m_date}" hidden="hidden" />
+		<form:input path="m_time" value="${memo.m_time}" hidden="hidden" />
+		<form:textarea path="m_memo" placeholder="내용" />
+		<input type="file" name="up_image" multiple="multiple"
+			accept="images/*" />
+		<button>저장</button>
+	</form:form>
 </body>
 </html>

@@ -40,9 +40,14 @@ public class MemoServiceImpl implements MemoService {
 
 	@Override
 	public String upFile(MultipartFile file) throws Exception {
+		if(file==null) {
+			log.debug("파일 널");
+			return null;
+		}
 		File dir = new File(upLoadFolder);
 		if (!dir.exists()) {
 			dir.mkdirs();
+			log.debug("폴더 널");
 		}
 		String fileName = file.getOriginalFilename();
 
@@ -66,7 +71,7 @@ public class MemoServiceImpl implements MemoService {
 	}
 
 	@Override
-	public MemoVO findById(String id) {
+	public MemoVO findById(Long id) {
 		// TODO Auto-generated method stub
 
 		return memoDao.findById(id);
@@ -86,7 +91,7 @@ public class MemoServiceImpl implements MemoService {
 	}
 
 	@Override
-	public int delete(String id) {
+	public int delete(Long id) {
 		// TODO Auto-generated method stub
 		return memoDao.delete(id);
 	}
@@ -94,15 +99,17 @@ public class MemoServiceImpl implements MemoService {
 	@Override
 	public String insertFile(MemoVO memoVO, MultipartFile file){
 		// TODO Auto-generated method stub
-
-		try {
-			String fileName = memoService.upFile(file);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+			try {
+				String fileName = memoService.upFile(file);
+				log.debug("파일네임 변수-------------------",fileName);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				log.debug("파일 안옴");
+				e.printStackTrace();
+			}
 		MemoVO imageVO = MemoVO.builder().m_image(file.getOriginalFilename()).build();
-
+		log.debug("인서트파일---------------", imageVO);
 		memoDao.insert(imageVO);
 		return null;
 	}

@@ -6,9 +6,11 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.callor.memo.model.MemoVO;
@@ -26,12 +28,12 @@ public class MemoController {
 	
 	
 	@RequestMapping(value="/insert",method = RequestMethod.GET)
-	public String insert(Model model) {
+	public String insert(@ModelAttribute("memoVO") MemoVO memoVO, Model model) {
 		Date date = new Date(System.currentTimeMillis());
 		SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
 		
-		MemoVO memoVO = MemoVO.builder()
+		memoVO = MemoVO.builder()
 						.m_date(dayFormat.format(date))
 						.m_time(timeFormat.format(date))
 						.build();
@@ -41,13 +43,14 @@ public class MemoController {
 	}
 	
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
-	public String insert(MemoVO memoVO, MultipartFile file, Model model){
+	public String insert(@ModelAttribute("memoVO") MemoVO memoVO,@RequestParam("up_image") MultipartFile file, Model model){
+			log.debug("컨트롤러-=---------------",memoVO.toString());
 		memoService.insertFile(memoVO, file);
 		return "redirect:/";
 	}
 	
 	@RequestMapping(value="/detail/{m_seq}", method=RequestMethod.GET)
-	public String detail(@PathVariable("m_seq") String seq, Model model) {
+	public String detail(@PathVariable("m_seq") Long seq, Model model) {
 		MemoVO memoVO = memoService.findById(seq);
 		log.debug("시퀀스값",seq);
 		model.addAttribute("memo", memoVO);
@@ -55,7 +58,7 @@ public class MemoController {
 	}
 	
 	@RequestMapping(value="/{m_seq}/update", method=RequestMethod.GET)
-	public String update(@PathVariable("m_seq") String seq, Model model) {
+	public String update(@PathVariable("m_seq") Long seq, Model model) {
 		memoService.findById(seq);
 		return "memo/update";
 	}
@@ -68,7 +71,7 @@ public class MemoController {
 	}
 	
 	@RequestMapping(value="/{m_seq}/delete", method=RequestMethod.GET)
-	public String delete(@PathVariable("m_seq") String seq) {
+	public String delete(@PathVariable("m_seq") Long seq) {
 		memoService.delete(seq);
 		return "redirect:/";
 	}
