@@ -22,7 +22,7 @@
 		<form:input path="m_date" value="${memo.m_date}" hidden="hidden" />
 		<form:input path="m_time" value="${memo.m_time}" hidden="hidden" />
 		<form:textarea path="m_memo" placeholder="내용" />
-		<input type="file" name="up_image" multiple="multiple"
+		<input type="file" name="file" multiple="multiple"
 			accept="images/*" />
 		<button>저장</button>
 	</form:form>

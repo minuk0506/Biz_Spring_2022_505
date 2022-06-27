@@ -3,6 +3,8 @@ package com.callor.memo.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,13 +39,12 @@ public class MemoController {
 						.m_date(dayFormat.format(date))
 						.m_time(timeFormat.format(date))
 						.build();
-		
 		model.addAttribute("memo",memoVO);
 		return "memo/insert";
 	}
 	
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
-	public String insert(@ModelAttribute("memoVO") MemoVO memoVO,@RequestParam("up_image") MultipartFile file, Model model){
+	public String insert(@ModelAttribute("memoVO") MemoVO memoVO,@RequestParam("file") MultipartFile file, Model model, HttpSession httpSession){
 			log.debug("컨트롤러-=---------------",memoVO.toString());
 		memoService.insertFile(memoVO, file);
 		return "redirect:/";

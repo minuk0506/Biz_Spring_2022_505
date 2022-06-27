@@ -13,14 +13,12 @@
 	</select>
 	<insert id="insert" parameterType="MemoVO">
 		INSERT INTO tbl_memo(
-		m_seq,
 		m_author,
 		m_date,
 		m_time,
 		m_memo,
 		m_image
 		) VALUES(
-		#{m_seq},
 		#{m_author},
 		#{m_date},
 		#{m_time},
