@@ -16,14 +16,12 @@
 	const rootPath = "${rootPath}"
 </script>
 <script src="${rootPath}/static/memo.js?20220627003"></script>
-<link rel="stylesheet" href="${rootPath}/static/home.css?20220630015" />
+<link rel="stylesheet" href="${rootPath}/static/home.css?20220630048" />
 </head>
 
 <body>
 	<div class="container">
-		<div>
-			<h1>${USERNAME}님의 메모</h1>
-		</div>
+	<h1>${USERNAME}의 메모</h1>
 		<table class="memo">
 			<tr>
 				<th>SEQ</th>

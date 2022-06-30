@@ -1,4 +1,21 @@
-container {
+body {
+  margin: 0;
+  background-image: url(background-texture.jpg);
+}
+h1 {
+  margin: 0;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 20vw 20vh;
+  background-color: white;
+  box-shadow: 2px 2px 18px #444;
+}
+.memo {
   display: flex;
   justify-content: center;
   align-content: center;
