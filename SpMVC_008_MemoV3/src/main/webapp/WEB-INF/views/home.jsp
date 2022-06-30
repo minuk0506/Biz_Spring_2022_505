@@ -16,40 +16,78 @@
 	const rootPath = "${rootPath}"
 </script>
 <script src="${rootPath}/static/memo.js?20220627003"></script>
-<link rel="stylesheet" href="${rootPath}/static/home.css?20220630048" />
+<link rel="stylesheet" href="${rootPath}/static/css.css?20220701059" />
+<link rel="stylesheet"
+	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 </head>
 
 <body>
-	<div class="container">
-	<h1>${USERNAME}의 메모</h1>
-		<table class="memo">
-			<tr>
-				<th>SEQ</th>
-				<th>작성일자</th>
-				<th>작성시각</th>
-				<th>메모</th>
-			</tr>
-			<c:if test="${empty MEMOS}">
-				<tr>
-					<td colspan="4">메모가 없습니다</td>
-				</tr>
-			</c:if>
-			<c:forEach items="${MEMOS}" var="MEMO" varStatus="INDEX">
-				<tr data-seq="${MEMO.m_seq}">
-					<td>${INDEX.count}</td>
-					<td>${MEMO.m_date}</td>
-					<td>${MEMO.m_time}</td>
-					<td>${MEMO.m_memo}</td>
-				</tr>
-			</c:forEach>
-		</table>
-		<a href="${rootPath}/memo/insert">메모작성하기</a>
-		<c:if test="${empty USERNAME}">
-			<a href="${rootPath}/user/login">로그인하기</a>
-		</c:if>
-		<c:if test="${not empty USERNAME }">
-			<a href="${rootPath}/user/logout">로그아웃하기</a>
-		</c:if>
-	</div>
+	<c:choose>
+		<c:when test="${LAYOUT eq 'LOGIN'}">
+			<div class="container">
+				<%@ include file="/WEB-INF/views/user/login.jsp"%>
+			</div>
+		</c:when>
+		<c:when test="${LAYOUT eq 'DETAIL'}">
+			<div class="detail-container">
+				<%@ include file="/WEB-INF/views/memo/detail.jsp"%>
+			</div>
+		</c:when>
+		<c:when test="${LAYOUT eq 'INPUT'}">
+			<div class="container">
+				<%@ include file="/WEB-INF/views/memo/input.jsp"%>
+			</div>
+		</c:when>
+		<c:when test="${LAYOUT eq 'UPDATE'}">
+			<div class="container">
+				<%@ include file="/WEB-INF/views/memo/input.jsp"%>
+			</div>
+		</c:when>
+		<c:otherwise>
+			<div class="container">
+				<fieldset>
+					<legend class="home-legend">${USERNAME}의 메모</legend>
+					<div class="home-table">
+						<table class="memo">
+							<tr>
+								<th>SEQ</th>
+								<th>작성일자</th>
+								<th>작성시각</th>
+								<th>메모</th>
+							</tr>
+							<c:if test="${empty MEMOS}">
+								<tr>
+									<td colspan="4">메모가 없습니다</td>
+								</tr>
+							</c:if>
+							<c:forEach items="${MEMOS}" var="MEMO" varStatus="INDEX">
+								<tr data-seq="${MEMO.m_seq}">
+									<td>${INDEX.count}</td>
+									<td>${MEMO.m_date}</td>
+									<td>${MEMO.m_time}</td>
+									<td>${MEMO.m_memo}</td>
+								</tr>
+							</c:forEach>
+						</table>
+					</div>
+				</fieldset>
+				<div class="btn-memo">
+					<div>
+						<i class="xi-plus-circle-o"></i> <a href="${rootPath}/memo/insert">메모작성하기</a>
+					</div>
+					<div>
+						<c:if test="${empty USERNAME}">
+							<i class="xi-log-in"></i>
+							<a href="${rootPath}/user/login">로그인하기</a>
+						</c:if>
+						<c:if test="${not empty USERNAME }">
+							<i class="xi-log-out"></i>
+							<a href="${rootPath}/user/logout">로그아웃하기</a>
+						</c:if>
+					</div>
+				</div>
+			</div>
+		</c:otherwise>
+	</c:choose>
 </body>
 </html>

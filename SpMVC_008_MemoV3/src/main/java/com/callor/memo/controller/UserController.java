@@ -3,6 +3,7 @@ package com.callor.memo.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -11,8 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class UserController {
 
 	@RequestMapping(value = "/login",method = RequestMethod.GET)
-	public String login() {
-		return null;
+	public String login(Model model) {
+		model.addAttribute("LAYOUT", "LOGIN");
+		return "home";
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)

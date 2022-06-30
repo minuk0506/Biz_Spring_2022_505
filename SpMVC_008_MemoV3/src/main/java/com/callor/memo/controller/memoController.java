@@ -29,7 +29,7 @@ public class memoController {
 	private MemoService memoService;
 	
 	@RequestMapping(value="/insert",method=RequestMethod.GET)
-	public String insert(@ModelAttribute("memo")MemoDTO memo, HttpSession httpSession) {
+	public String insert(@ModelAttribute("memo")MemoDTO memo, HttpSession httpSession, Model model) {
 		
 		String username = (String) httpSession.getAttribute("USERNAME");
 		
@@ -37,8 +37,8 @@ public class memoController {
 			return "redirect:/user/login";
 		}
 		memo.setM_author(username);
-		
-		return "memo/input";
+		model.addAttribute("LAYOUT", "INPUT");
+		return "home";
 	}
 	/*
 	 * 첨부파일이 있는 프로젝트에서
@@ -67,7 +67,8 @@ public class memoController {
 		
 		memoDTO = memoService.findById(m_seq);
 		model.addAttribute("MEMO", memoDTO);
-		return "memo/detail";
+		model.addAttribute("LAYOUT", "DETAIL");
+		return "home";
 	}
 	
 	@RequestMapping(value = "/{seq}/update", method=RequestMethod.GET)
@@ -75,7 +76,8 @@ public class memoController {
 		// 전달받은 seq 에 해당하는 데이터 select
 		MemoDTO memo = memoService.findById(Long.valueOf(seq));
 		model.addAttribute("MEMO", memo);
-		return "memo/input";
+		model.addAttribute("LAYOUT", "UPDATE");
+		return "home";
 	}
 
 	@RequestMapping(value = "/{seq}/update", method=RequestMethod.POST)
