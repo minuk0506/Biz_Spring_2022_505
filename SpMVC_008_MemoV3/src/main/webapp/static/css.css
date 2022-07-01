@@ -1,144 +1,197 @@
 html {
-	font-family: "Malgun Gothic";
+  font-family: "Malgun Gothic";
 }
 
 body {
-	margin: 0;
-	background-image: url("back-texture.jpg");
+  margin: 0;
+  background-image: url("back-texture.jpg");
 }
 
 h1 {
-	margin: 0;
-	margin-bottom: 10px;
+  margin: 0;
+  margin-bottom: 10px;
 }
 
 table {
-	border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 td {
-	overflow: unset;
+  overflow: unset;
 }
 
 a {
-	text-decoration: none;
-	color: #333;
+  text-decoration: none;
+  color: #333;
 }
 
 a:hover {
-	border: 1px solid #333;
+  border: 1px solid #333;
 }
 
 fieldset {
-	border-style: dashed;
-	border-color: #444;
+  border-style: dashed;
+  border-color: #444;
 }
 
 input {
-	border-style: dashed;
-	border-color: #444;
-	background-color: #f5ea8d;
-}
-.container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	flex-wrap: wrap;
-	align-content: center;
-	margin: 5% 30%;
-	min-height: 750px;
-	background-image: url("in-texture.png");
-	box-shadow: 1px 1px 10px #444;
-	background-size: cover;
-	padding: 3% 3%;
-	align-content: center;
+  border-style: dashed;
+  border-color: #444;
+  background-color: #f5ea8d;
 }
 
+th,
+td {
+  min-width: 75px;
+}
+
+button {
+  border-style: dashed;
+  border-color: #444;
+  background-color: #f5ea8d;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  margin: 5% 30%;
+  height: 700px;
+  width: 550px;
+  background-image: url("in-texture.png");
+  box-shadow: 1px 1px 10px #444;
+  background-size: cover;
+  padding: 3% 3%;
+  align-content: center;
+}
 .detail-container {
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	margin: 5% 30%;
-	min-height: 750px;
-	background-image: url("in-texture.png");
-	box-shadow: 1px 1px 10px #444;
-	background-size: cover;
-	padding: 3% 3%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 5% 30%;
+  min-height: 750px;
+  background-image: url("in-texture.png");
+  box-shadow: 1px 1px 10px #444;
+  background-size: cover;
+  padding: 3% 3%;
 }
 
 .home-legend {
-	font-size: 30px;
-	font-weight: bold;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .home-table {
-	width: 400px;
-	height: 600px;
+  width: 400px;
+  height: 600px;
 }
 
 .memo {
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 10px;
 }
 
 .memo tr {
-	border-bottom: 1px solid #444;
+  border-bottom: 1px solid #444;
 }
 
 .btn-memo {
-	margin-top: auto;
-	display: flex;
-	justify-content: space-evenly;
-	color: #333;
-	padding: 5px;
-	display: flex;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-evenly;
+  color: #333;
+  padding: 5px;
+  display: flex;
 }
 
 .login-form {
-	display: grid;
-	width: 300px;
-	height: 50px;
-	align-self: center;
+  display: grid;
+  width: 300px;
+  height: 50px;
+  align-self: center;
 }
-
+.insert-file {
+  border-style: dashed;
+  border-color: #444;
+  padding: 5px 0;
+  margin-bottom: 10px;
+}
+.upload-name {
+  border-style: none;
+  display: inline-block;
+}
 .input-form {
-	display: flex;
-	flex-direction: column;
-	width: 300px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
 }
 
 .input-form input {
-	margin-bottom: 15px;
+  margin-bottom: 15px;
 }
-.input-button{
-	cursor:pointer;
-	border-style: dashed;
-	border-color: #444;
-	padding: 5px 0;
+.input-button {
+  cursor: pointer;
+}
+#input-file {
+  display: none;
 }
 .input-form-memo {
-	height: 200px;
+  height: 200px;
 }
 
 .detail-writeData {
-	display: flex;
-	justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .detail-container div {
-	margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .memoData {
-	min-height: 450px;
+  min-height: 450px;
 }
 
 .detail-div-button {
-	margin-top: auto;
-	display: flex;
-	justify-content: space-evenly;
-	color: #333;
-	padding: 5px;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-evenly;
+  color: #333;
+  padding: 5px;
+}
+
+.slide {
+  animation: change 0.5s ease-in forwards;
+}
+
+@keyframes change {
+  0% {
+    visibility: visible;
+    transform: rotateX(100deg);
+    transform-origin: 0 0%;
+  }
+  20% {
+    transform: rotateX(90deg);
+    transform-origin: 0 0%;
+  }
+  40% {
+    transform: rotateX(75deg);
+    transform-origin: 0 0%;
+  }
+  60% {
+    transform: rotateX(35deg);
+    transform-origin: 0 0%;
+  }
+  80% {
+    transform: rotateX(20deg);
+    transform-origin: 0 0%;
+  }
+  100% {
+    transform: rotateX(0);
+    transform-origin: 0 0%;
+  }
 }

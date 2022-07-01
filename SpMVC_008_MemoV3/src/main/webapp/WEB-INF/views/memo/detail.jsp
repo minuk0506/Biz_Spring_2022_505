@@ -34,9 +34,18 @@
 				</fieldset>
 	</div>
 	<div class="detail-div-button">
-		<a href="${rootPath}/memo/${MEMO.m_seq}/update">수정</a> <a
-			href="${rootPath}/memo/${MEMO.m_seq}/delete">삭제</a> <a
-			href="${rootPath}/">홈으로</a>
+	<div>
+	<i class="xi-eraser"></i>
+		<a href="${rootPath}/memo/${MEMO.m_seq}/update">수정</a>
+		</div> 
+	<div>
+	<i class="xi-trash"></i>
+		<a href="${rootPath}/memo/${MEMO.m_seq}/delete">삭제</a>
+		</div> 
+	<div>
+	<i class="xi-home"></i>
+		<a href="${rootPath}/">홈으로</a>
+		</div>
 	</div>
 </body>
 </html>

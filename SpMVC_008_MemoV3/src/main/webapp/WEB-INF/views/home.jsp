@@ -15,8 +15,9 @@
 <script>
 	const rootPath = "${rootPath}"
 </script>
-<script src="${rootPath}/static/memo.js?20220627003"></script>
-<link rel="stylesheet" href="${rootPath}/static/css.css?20220701059" />
+<script src="${rootPath}/static/button.js?20220701009"></script>
+<script src="${rootPath}/static/memo.js?20220627006"></script>
+<link rel="stylesheet" href="${rootPath}/static/css.css?20220701113" />
 <link rel="stylesheet"
 	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 </head>
@@ -24,28 +25,29 @@
 <body>
 	<c:choose>
 		<c:when test="${LAYOUT eq 'LOGIN'}">
-			<div class="container">
+			<div class="container slide">
 				<%@ include file="/WEB-INF/views/user/login.jsp"%>
 			</div>
 		</c:when>
 		<c:when test="${LAYOUT eq 'DETAIL'}">
-			<div class="detail-container">
+			<div class="detail-container slide">
 				<%@ include file="/WEB-INF/views/memo/detail.jsp"%>
 			</div>
 		</c:when>
 		<c:when test="${LAYOUT eq 'INPUT'}">
-			<div class="container">
+			<div class="container slide">
 				<%@ include file="/WEB-INF/views/memo/input.jsp"%>
 			</div>
 		</c:when>
 		<c:when test="${LAYOUT eq 'UPDATE'}">
-			<div class="container">
+			<div class="container slide">
 				<%@ include file="/WEB-INF/views/memo/input.jsp"%>
 			</div>
 		</c:when>
+		
 		<c:otherwise>
-			<div class="container">
-				<fieldset>
+			<div class="container slide">
+				<fieldset> 
 					<legend class="home-legend">${USERNAME}의 메모</legend>
 					<div class="home-table">
 						<table class="memo">
