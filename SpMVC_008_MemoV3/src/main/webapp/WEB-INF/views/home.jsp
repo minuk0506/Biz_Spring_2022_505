@@ -17,7 +17,7 @@
 </script>
 <script src="${rootPath}/static/button.js?20220701009"></script>
 <script src="${rootPath}/static/memo.js?20220627006"></script>
-<link rel="stylesheet" href="${rootPath}/static/css.css?20220701113" />
+<link rel="stylesheet" href="${rootPath}/static/css.css?20220701128" />
 <link rel="stylesheet"
 	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 </head>
@@ -25,27 +25,37 @@
 <body>
 	<c:choose>
 		<c:when test="${LAYOUT eq 'LOGIN'}">
+			<img class="pin" src="${rootPath}/static/pushpin.png">
+			<img class="pin2" src="${rootPath}/static/pushpin.png">
 			<div class="container slide">
 				<%@ include file="/WEB-INF/views/user/login.jsp"%>
 			</div>
 		</c:when>
 		<c:when test="${LAYOUT eq 'DETAIL'}">
+			<img class="pin" src="${rootPath}/static/pushpin.png">
+			<img class="pin2" src="${rootPath}/static/pushpin.png">
 			<div class="detail-container slide">
 				<%@ include file="/WEB-INF/views/memo/detail.jsp"%>
 			</div>
 		</c:when>
 		<c:when test="${LAYOUT eq 'INPUT'}">
+			<img class="pin" src="${rootPath}/static/pushpin.png">
+			<img class="pin2" src="${rootPath}/static/pushpin.png">
 			<div class="container slide">
 				<%@ include file="/WEB-INF/views/memo/input.jsp"%>
 			</div>
 		</c:when>
 		<c:when test="${LAYOUT eq 'UPDATE'}">
+			<img class="pin" src="${rootPath}/static/pushpin.png">
+			<img class="pin2" src="${rootPath}/static/pushpin.png">
 			<div class="container slide">
 				<%@ include file="/WEB-INF/views/memo/input.jsp"%>
 			</div>
 		</c:when>
 		
 		<c:otherwise>
+			<img class="pin" src="${rootPath}/static/pushpin.png">
+			<img class="pin2" src="${rootPath}/static/pushpin.png">
 			<div class="container slide">
 				<fieldset> 
 					<legend class="home-legend">${USERNAME}의 메모</legend>

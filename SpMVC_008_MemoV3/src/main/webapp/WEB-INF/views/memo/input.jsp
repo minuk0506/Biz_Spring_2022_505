@@ -22,10 +22,11 @@
 			class="input-form-memo" name="m_memo" placeholder="메모를 입력"
 			value="${MEMO.m_memo}">
 			<div class="insert-file">
+			
 			<label class="input-button" for="input-file">파일선택</label>
-			<input id="input-file" name="file" type="file"
-			accept="image/*">
+			<input id="input-file" name="file" type="file" accept="image/*">
 			<div class="upload-name"></div>
+			
 			</div>
 		<button><i class="xi-pen"></i>메모기록</button>
 	</form>

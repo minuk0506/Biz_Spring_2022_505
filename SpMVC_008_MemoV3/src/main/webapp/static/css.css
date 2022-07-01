@@ -69,9 +69,9 @@ button {
 .detail-container {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   margin: 5% 30%;
-  min-height: 750px;
+  height: 700px;
+  width: 550px;
   background-image: url("in-texture.png");
   box-shadow: 1px 1px 10px #444;
   background-size: cover;
@@ -144,6 +144,7 @@ button {
 }
 
 .detail-writeData {
+  margin-top: 15px;
   display: flex;
   justify-content: space-between;
 }
@@ -153,7 +154,7 @@ button {
 }
 
 .memoData {
-  min-height: 450px;
+  min-height: 340px;
 }
 
 .detail-div-button {
@@ -163,7 +164,43 @@ button {
   color: #333;
   padding: 5px;
 }
-
+.pin {
+  background-image: url("pushpin.png");
+  z-index: 99;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: 30%;
+  animation: firPin 0.5s forwards;
+}
+.pin2 {
+  background-image: url("pushpin.png");
+  z-index: 99;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: 58%;
+  animation: secPin 0.7s forwards;
+}
+@keyframes firPin {
+  from {
+    transform: translate(100px, -200px);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+@keyframes secPin {
+  0% {
+    transform: translate(100px, -200px);
+  }
+  50% {
+    transform: translate(100px, -200px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
 .slide {
   animation: change 0.5s ease-in forwards;
 }
