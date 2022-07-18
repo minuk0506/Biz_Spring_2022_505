@@ -9,7 +9,8 @@
 		select * from tbl_address
 	</select>
 	<select id="findById" resultType="AddressVO">
-		select * from tbl_address where a_seq = #{a_seq}
+		select * from tbl_address where
+		a_seq = #{a_seq}
 	</select>
 	<insert id="insert" parameterType="AddressVO">
 		insert into tbl_address(
@@ -25,14 +26,18 @@
 	<update id="update" parameterType="AddressVO">
 		UPDATE tbl_address
 		SET
-		a_seq = #{a_seq},
+		a_seq =
+		#{a_seq},
 		a_name = #{a_name},
 		a_tel = #{a_tel},
 		a_address = #{a_address}
 		WHERE a_seq = #{a_seq};
 
 	</update>
-	<delete id="delete"></delete>
+	<delete id="delete" parameterType="AddressVO">
+		delete from tbl_address
+		where a_seq = #{a_seq}
+	</delete>
 
 	<select id="create_addr_table">
 		CREATE TABLE IF NOT EXISTS tbl_address(

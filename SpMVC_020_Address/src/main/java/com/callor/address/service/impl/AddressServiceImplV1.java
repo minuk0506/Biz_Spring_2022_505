@@ -68,7 +68,7 @@ public class AddressServiceImplV1 implements AddressService{
 
 	@Override
 	public int delete(long a_seq) {
-		// TODO Auto-generated method stub
+		addrDao.delete(a_seq);
 		return 0;
 	}
 

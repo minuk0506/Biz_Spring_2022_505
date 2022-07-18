@@ -65,5 +65,11 @@ public class HomeController {
 		addrSerV1.update(vo);
 		return "redirect:/";
 	}
-
+	
+	@RequestMapping(value ="/delete", method = RequestMethod.GET)
+	public String delete(@RequestParam(name = "seq", required = false, defaultValue = "0") long a_seq) {
+		AddressVO vo = addrSerV1.findById(a_seq);
+		addrSerV1.delete(a_seq);
+		return "redirect:/";
+	}
 }
