@@ -12,6 +12,14 @@
 		select * from tbl_address where
 		a_seq = #{a_seq}
 	</select>
+	<select id="searchAndPage" resultType="AddressVO">
+		SELECT * FROM
+		(
+		select * from tbl_address
+		where a_name LIKE CONCAT('%', #{a_name}, '%')
+		) AS SUB
+		LIMIT #{limit} OFFSET #{offset}
+	</select>
 	<insert id="insert" parameterType="AddressVO">
 		insert into tbl_address(
 		a_name,
@@ -26,17 +34,18 @@
 	<update id="update" parameterType="AddressVO">
 		UPDATE tbl_address
 		SET
-		a_seq =
-		#{a_seq},
-		a_name = #{a_name},
+		a_name =
+		#{a_name},
 		a_tel = #{a_tel},
 		a_address = #{a_address}
-		WHERE a_seq = #{a_seq};
+		WHERE a_seq =
+		#{a_seq};
 
 	</update>
 	<delete id="delete" parameterType="AddressVO">
 		delete from tbl_address
-		where a_seq = #{a_seq}
+		where
+		a_seq = #{a_seq}
 	</delete>
 
 	<select id="create_addr_table">

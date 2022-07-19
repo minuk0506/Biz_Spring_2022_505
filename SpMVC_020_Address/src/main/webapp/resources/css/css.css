@@ -1,0 +1,126 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Malgun Gothic";
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+.body {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-image: url("../image/phone.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 1px;
+  margin-top: -1px;
+}
+.container {
+  width: 555px;
+  height: 768px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 70px;
+  background-color: white;
+}
+
+.head {
+  height: 10%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  background-color: blanchedalmond;
+}
+
+.title {
+}
+.sect {
+  height: 85%;
+}
+.insertAddr {
+  height: 7%;
+  display: flex;
+  align-items: center;
+}
+.selectAddr {
+  max-width: 555px;
+  height: 83%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 260px 260px;
+  grid-auto-rows: minmax(100px, auto);
+  overflow-y: scroll;
+}
+.foot {
+  height: 5%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: blanchedalmond;
+  justify-content: center;
+}
+table {
+  margin: 10px 10px;
+  border-collapse: collapse;
+}
+tr {
+  border: 1px groove #000;
+}
+td {
+  max-width: 50px;
+  overflow: hidden;
+  border-right: 1px dashed #000;
+  padding: 3px;
+}
+td:hover {
+  overflow: visible;
+}
+td:last-of-type {
+  border-right: none;
+}
+form {
+  display: flex;
+}
+
+h1 {
+  display: inline-block;
+  margin-right: 10px;
+}
+h2 {
+  display: inline-block;
+}
+.info {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.info div {
+  margin-bottom: 30px;
+}
+.btn {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-content: stretch;
+  background-color: blanchedalmond;
+}
+.btn a {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: white;
+  box-shadow: 1px 1px 3px 1px #dadce0;
+}
