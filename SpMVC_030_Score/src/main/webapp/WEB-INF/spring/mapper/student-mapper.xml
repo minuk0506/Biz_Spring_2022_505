@@ -14,7 +14,8 @@
  	</insert>
  	<update id="update" parameterType="StudentVO">
  	</update>
- 	<delete id="delete" parameterType="StudentVO">
+ 	<delete id="delete">
+ 	delete from tbl_student where st_num = #{st_num}
  	</delete>
  
  </mapper> 

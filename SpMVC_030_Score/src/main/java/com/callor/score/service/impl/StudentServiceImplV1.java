@@ -39,7 +39,7 @@ public class StudentServiceImplV1 implements StudentService{
 
 	@Override
 	public int delete(String id) {
-		return 0;
+		return studentDao.delete(id);
 	}
 
 }
