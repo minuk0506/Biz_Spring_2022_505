@@ -24,17 +24,19 @@ public class StudentServiceImplV1 implements StudentService{
 
 	@Override
 	public StudentVO findById(String id) {
-		return null;
+		return studentDao.findById(id);
+		
 	}
 
 	@Override
 	public int insert(StudentVO vo) {
-		return 0;
+		
+		return studentDao.insert(vo);
 	}
 
 	@Override
 	public int update(StudentVO vo) {
-		return 0;
+		return studentDao.update(vo);
 	}
 
 	@Override
