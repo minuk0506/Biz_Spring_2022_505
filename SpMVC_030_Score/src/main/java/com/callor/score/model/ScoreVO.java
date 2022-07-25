@@ -18,6 +18,7 @@ public class ScoreVO {
 	private String sc_stnum;
 	private String sc_sbcode;
 	private String sc_score;
+	
 
 	private String sb_code;
 	private String sb_name;
