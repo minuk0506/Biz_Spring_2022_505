@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.callor.score.model.ScoreVO;
 import com.callor.score.model.StudentVO;
 import com.callor.score.service.StudentService;
 
@@ -46,9 +47,11 @@ public class StudentController {
 		return "student/detail";
 	}
 
-	@RequestMapping(value = "/detail/{st_num}/update", method = RequestMethod.GET)
-	public String update(@PathVariable("st_num") String st_num, Model model) {
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String update(@RequestParam(name="st_num", required=false, defaultValue="0") String st_num, Model model) {
+		log.debug("로그로그로그{}",st_num);
 		StudentVO stvo = stuSerV1.findById(st_num);
+		log.debug("VO로그VO로그VO로그{}",stvo);
 		model.addAttribute("STUDENT", stvo);
 		return "student/update";
 	}
@@ -61,16 +64,16 @@ public class StudentController {
 	 * 이때 주소창에 st_num=S001 이라는 변수가 설정되어 있기 때문에
 	 * 
 	 * form 에 st_num 항목을 설정하지 않아도 StudentVO 의 st_num 변수에
-	 * 학번 값이 들어간다
+	 * 학번이 자동으로 담기게 된다.
 	 */
-	@RequestMapping(value = "/detail/{st_num}/update", method = RequestMethod.POST)
-	public String update(@PathVariable("st_num") String st_num, Model model, StudentVO stnum) {
-		StudentVO stvo = stuSerV1.findById(st_num);
-		model.addAttribute("STUDENT", stvo);
-		stuSerV1.update(stnum);
-		return "redirect:/";
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(StudentVO student) {
+		stuSerV1.update(student);
+		String retStr = String.format("redirect:/student/detail?st_num=%s", student.getSt_num());
+		return retStr;
 	}
 
+	
 	// JSON type 으로 return
 	@ResponseBody
 	@RequestMapping(value = { "/json" }, method = RequestMethod.GET)

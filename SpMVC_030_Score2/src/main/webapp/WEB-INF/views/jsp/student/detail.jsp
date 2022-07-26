@@ -41,6 +41,6 @@
 </div>
 <div>
 	<a
-		href="http://localhost:8080/score/student/detail/{st_num}/update">수정</a>
+		href="http://localhost:8080/score/student/update">수정</a>
 	<a href="http://localhost:8080/score/student">리스트로</a>
 </div>
