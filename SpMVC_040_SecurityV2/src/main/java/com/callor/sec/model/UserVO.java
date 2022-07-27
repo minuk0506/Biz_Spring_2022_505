@@ -30,5 +30,5 @@ public class UserVO implements UserDetails{
 	private boolean isAccountNotLocked;
 	private boolean isCredentailsNonExpired;
 	
-	private Collection<? extends GrantedAuthority> authorities;
+	private Collection<? extends GrantedAuthority> authorities; // getAuthorities
 }
