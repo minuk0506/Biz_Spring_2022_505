@@ -11,8 +11,28 @@
   				ON sc_sbcode = sb_code
   		WHERE sc_stnum = #{sc_stnum}
   	</select>
+  	<!-- 
+  	List, 배열 등을 사용하여 Query 를 반복코딩하기
+  	foreach 구분을 사용하여 반복 Query 를 만들기
   	
-	<update id="updateScore">
+  	Service 에서 Dao.updateScoreArray()를 반복문으로 호출을 하면
+  	리스트 개수만큼
+  	커넥션 연결, Query 전송, 커넥션 닫기 가 계속 반복된다
+  	
+  	mapper 의 foreach 를 사용하여 반복 Query 를 작성하면
+  	한번의 커넥션연결, 연속 Query 전송, 커넥션 닫기가 실행되어
+  	DB 와 연결하는 부분에서 훨신 효율적인 처리가 된다
+  	 -->
+  	<update id="updateScore" parameterType="ScoreUpdateVO">
+  		<foreach collection="sb_code" item="code" index="index">
+  			update tbl_score
+  			set sc_score = #{sc_score[${index}]}
+  			where sc_stnum = #{st_num}
+  			and sc_sbcode = #{code};
+  		</foreach>
+  	</update>
+  	
+	<update id="updateScoreArray">
 	update tbl_score
 	set
 	sc_score = #{sc_score}

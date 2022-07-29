@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.callor.score.model.ScoreUpdateVO;
 import com.callor.score.model.StudentVO;
 import com.callor.score.service.ScoreService;
 import com.callor.score.service.StudentService;
@@ -35,11 +36,20 @@ public class ScoreController {
 		return "score/update";
 	}
 	
+	@RequestMapping(value="/update",method=RequestMethod.POST)
+	public String update(ScoreUpdateVO score) {
+		log.debug(score.toString());
+		
+		scoreService.updateScore(score);
+		
+		return "redirect:/student/detail?st_num=" + score.getSt_num();
+	}
+	
+	
 	/*
 	 * 한개의 form 에 다수의 input 가 같은 이름으로 존재할 경우
 	 * Controller 에서 데이터를 받을때 문자열 배열로 데이터를 받는다
 	 */
-	@RequestMapping(value="/update",method=RequestMethod.POST)
 	public String update(String st_num, String[] sb_code, String[] sc_score) {
 		
 		for(int i = 0 ; i < sb_code.length ; i++) {
