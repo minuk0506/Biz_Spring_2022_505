@@ -21,10 +21,10 @@
 	<h1>todoList</h1>
 	<sec:authorize access="isAnonymous()">
 		<h3>
-			<a href="${rootPath}/login">로그인</a>
+			<a href="${rootPath}/user/login">로그인</a>
 		</h3>
 		<h3>
-			<a href="${rootPath}/users/join">회원가입</a>
+			<a href="${rootPath}/user/join">회원가입</a>
 		</h3>
 	
 	</sec:authorize>
@@ -32,7 +32,7 @@
 		<h3><a href="${rootPath}/admin/home">관리자페이지</a></h3>
 	</sec:authorize>
 	<sec:authorize access="isAuthenticated() AND hasRole('ROLE_USER')">
-	<h3><a href="${rootPath}/users/mypage">마이페이지</a></h3>
+	<h3><a href="${rootPath}/user/mypage">마이페이지</a></h3>
 		<h3>
 			<form:form action="${rootPath}/logout">
 				<button>로그아웃</button>

@@ -2,6 +2,7 @@ package com.callor.todo.service.impl;
 
 import java.util.List;
 
+import com.callor.todo.model.AuthorityVO;
 import com.callor.todo.model.UserVO;
 import com.callor.todo.service.UserService;
 
@@ -35,6 +36,12 @@ public class UserServiceImpl implements UserService{
 	public int delete(String id) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public List<AuthorityVO> select_role(String username) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
