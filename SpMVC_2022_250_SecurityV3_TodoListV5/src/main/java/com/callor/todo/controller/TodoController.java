@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.callor.todo.model.TodoVO;
 import com.callor.todo.service.TodoService;
+import com.mysql.cj.log.Log;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 @RequestMapping(value="/todo")
 public class TodoController {
@@ -82,8 +86,16 @@ public class TodoController {
 	
 	@RequestMapping(value="/update", method=RequestMethod.POST)
 	public String update(TodoVO todoVO, Model model) {
-		
+		log.debug("수신된 데이터 {}",todoVO);
 		todoService.update(todoVO);
+		
+		return "redirect:/todo";
+	}
+	
+	@RequestMapping(value="/comp", method=RequestMethod.GET)
+	public String comp(String seq, Model model) {
+		
+		int ret = todoService.todoComp(seq);
 		
 		return "redirect:/todo";
 	}

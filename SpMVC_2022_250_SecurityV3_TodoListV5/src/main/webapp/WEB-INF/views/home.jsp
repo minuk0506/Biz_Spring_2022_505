@@ -37,14 +37,14 @@ body {
 header {
 	padding: 2rem;
 	color: white;
-	background-color: green;
+	background-color: teal;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
 nav {
-	background-color: blue;
+	background-color: #44c;
 	color: white;
 }
 

@@ -23,4 +23,6 @@ public class TodoVO {
 	private String compDate;
 	private String compTime;
 	
+	// boolean type 의 기본값은 false
+	private boolean complete;
 }
