@@ -20,8 +20,8 @@ import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.callor.food.config.FoodConfig;
-import com.callor.food.config.QualifierConfig;
+import com.callor.food.configSample.FoodConfig;
+import com.callor.food.configSample.QualifierConfig;
 import com.callor.food.model.FoodItem;
 import com.callor.food.model.FoodRoot;
 import com.callor.food.service.FoodService;

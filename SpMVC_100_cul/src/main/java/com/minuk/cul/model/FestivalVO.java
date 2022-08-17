@@ -1,5 +1,18 @@
 package com.minuk.cul.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class FestivalVO {
 	// 축제정보
 	private String totalPage;			//전체 페이지 수

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.minuk.cul.model.TourVO;
 import com.minuk.cul.service.TourService;
@@ -19,12 +20,15 @@ private final TourService tourService;
 		this.tourService = tourService;
 	}
 	
-	@RequestMapping(value={"/",""}, method=RequestMethod.POST)
+	@RequestMapping(value={"/",""}, method=RequestMethod.GET)
 	public String home() {
+		String queryString = tourService.queryString(null);
+		tourService.getTourItems(queryString);
 		return "home";
 	}
 	
-	@RequestMapping(value = "/tour", method = RequestMethod.GET)
+	@ResponseBody
+	@RequestMapping(value = "/tour", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
 	public List<TourVO> Tour() {
 		
 		String queryString = tourService.queryString(null);
