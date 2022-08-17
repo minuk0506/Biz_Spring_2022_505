@@ -96,7 +96,6 @@ footer{
 <script>
 	const rootPath = '${rootPath}'
 </script>
-
 </head>
 <body>
 	<header>
