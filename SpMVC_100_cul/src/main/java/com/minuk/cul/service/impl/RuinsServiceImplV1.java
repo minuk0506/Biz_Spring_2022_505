@@ -26,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service(QualifierConfig.SERVICE.TOUR_V1)
-public class TourServiceImplV1 implements TourService{
+public class RuinsServiceImplV1 implements TourService{
 
 	@Override
 	public String tourQueryStr(String search) {
@@ -61,10 +61,10 @@ public class TourServiceImplV1 implements TourService{
 	@Override
 	public List<TourVO> getTourItems(String queryString) {
 		
-		URI tourRestURI = null;
+		URI foodRestURI = null;
 		
 		try {
-			tourRestURI = new URI(queryString);
+			foodRestURI = new URI(queryString);
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -82,22 +82,22 @@ public class TourServiceImplV1 implements TourService{
 		// String type 으로 데이터를 수신하여 어떤형태로
 		// 데이터가 수신되는지 확인하는 절차
 		ResponseEntity<String> resString = null;
-		resString = restTemp.exchange(tourRestURI, HttpMethod.GET, headerEntity, String.class);
+		resString = restTemp.exchange(foodRestURI, HttpMethod.GET, headerEntity, String.class);
 		
 		log.debug("=".repeat(100));
 		log.debug("{}",resString.getBody());
 		log.debug("=".repeat(100));
 		
 		// 수신된 데이터를 VO 로 변환하기
-		ResponseEntity<TourRoot> resTourObject = null;
+		ResponseEntity<TourRoot> resFoodObject = null;
 		
 		// RestTemplate 이 수신한 데이터를 중간에 가로채서 조작하기
 		restTemp.getInterceptors().add(new HttpRequestInterceptorV1());
-		resTourObject = restTemp.exchange(tourRestURI, HttpMethod.GET, headerEntity, TourRoot.class);
+		resFoodObject = restTemp.exchange(foodRestURI, HttpMethod.GET, headerEntity, TourRoot.class);
 		
-		log.debug("수신된 데이터 {}", resTourObject.getBody().TourDestBaseInfo);
+		log.debug("수신된 데이터 {}", resFoodObject.getBody().TourDestBaseInfo);
 		
-		return resTourObject.getBody().TourDestBaseInfo;
+		return resFoodObject.getBody().TourDestBaseInfo;
 	}
 
 }

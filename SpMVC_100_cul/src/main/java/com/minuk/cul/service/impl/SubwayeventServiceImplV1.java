@@ -17,54 +17,57 @@ import org.springframework.web.client.RestTemplate;
 
 import com.minuk.cul.config.ApiConfig;
 import com.minuk.cul.config.QualifierConfig;
+import com.minuk.cul.model.SubwayEventVO;
 import com.minuk.cul.model.TourRoot;
-import com.minuk.cul.model.TourVO;
-import com.minuk.cul.service.TourService;
+import com.minuk.cul.service.SubwayeventService;
 import com.minuk.cul.utils.HttpRequestInterceptorV1;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@Service(QualifierConfig.SERVICE.TOUR_V1)
-public class TourServiceImplV1 implements TourService{
+@Service(QualifierConfig.SERVICE.SUBWAYEVENT_V1)
+public class SubwayeventServiceImplV1 implements SubwayeventService{
 
 	@Override
-	public String tourQueryStr(String search) {
+	public String SubwayeventQueryStr(String search) {
 		
-		String tourQueryStr = ApiConfig.API_TOUR_URL;
+		String subwayeventQueryStr = ApiConfig.API_TOUR_URL;
 		String encodeParams = null;
 		
 		try {
-			encodeParams = "?" + URLEncoder.encode("serviceKey","UTF-8");
-			encodeParams += "=" + ApiConfig.SERVICE_KEY;
+			encodeParams = "?" + URLEncoder.encode("rbsIdx","UTF-8");
+			encodeParams += "=318"; // 프로그램ID 고정값
 			
-			encodeParams += "&" + URLEncoder.encode("pageNo","UTF-8");
-			encodeParams += "=1";
+			encodeParams += "&" + URLEncoder.encode("doctype","UTF-8");
+			encodeParams += "=json"; // 문서형식
 			
-			encodeParams += "&" + URLEncoder.encode("numOfRows","UTF-8");
-			encodeParams += "=10";
+			encodeParams += "&" + URLEncoder.encode("listcount","UTF-8");
+			encodeParams += "=50"; // 목록개수 최근 50개 목록 요청 가능
 			
-			encodeParams += "&" + URLEncoder.encode("type","UTF-8");
-			encodeParams += "=json";
+			encodeParams += "&" + URLEncoder.encode("month","UTF-8");
+			encodeParams += "=201511"; // 행사월 ex)년월
+
+			encodeParams += "&" + URLEncoder.encode("eventtype","UTF-8");
+			encodeParams += "=99"; // 행사종류: 99 = 전시, 100 = 공연
 			
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		tourQueryStr += encodeParams;
-		log.debug("쿼리 문자열 {}", tourQueryStr);
+		subwayeventQueryStr += encodeParams;
+		log.debug("쿼리 문자열 {}", subwayeventQueryStr);
 		
-		return tourQueryStr;
+		return subwayeventQueryStr;
 	}
 
 	@Override
-	public List<TourVO> getTourItems(String queryString) {
+	public List<SubwayEventVO> getSubwayeventItems(String queryString) {
 		
-		URI tourRestURI = null;
+		URI SubwayEventRestURI = null;
 		
 		try {
-			tourRestURI = new URI(queryString);
+			SubwayEventRestURI = new URI(queryString);
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -82,22 +85,22 @@ public class TourServiceImplV1 implements TourService{
 		// String type 으로 데이터를 수신하여 어떤형태로
 		// 데이터가 수신되는지 확인하는 절차
 		ResponseEntity<String> resString = null;
-		resString = restTemp.exchange(tourRestURI, HttpMethod.GET, headerEntity, String.class);
+		resString = restTemp.exchange(SubwayEventRestURI, HttpMethod.GET, headerEntity, String.class);
 		
 		log.debug("=".repeat(100));
 		log.debug("{}",resString.getBody());
 		log.debug("=".repeat(100));
 		
 		// 수신된 데이터를 VO 로 변환하기
-		ResponseEntity<TourRoot> resTourObject = null;
+		ResponseEntity<TourRoot> resFoodObject = null;
 		
 		// RestTemplate 이 수신한 데이터를 중간에 가로채서 조작하기
 		restTemp.getInterceptors().add(new HttpRequestInterceptorV1());
-		resTourObject = restTemp.exchange(tourRestURI, HttpMethod.GET, headerEntity, TourRoot.class);
+		resFoodObject = restTemp.exchange(SubwayEventRestURI, HttpMethod.GET, headerEntity, TourRoot.class);
 		
-		log.debug("수신된 데이터 {}", resTourObject.getBody().TourDestBaseInfo);
+		log.debug("수신된 데이터 {}", resFoodObject.getBody().TourDestBaseInfo);
 		
-		return resTourObject.getBody().TourDestBaseInfo;
+		return resFoodObject.getBody().TourDestBaseInfo;
 	}
 
 }

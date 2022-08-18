@@ -1,13 +1,7 @@
-# 메모장 프로젝트
-가장 간단하게 CRUD 를 구현하기 위한 프로젝트
-* mysql, mybatis 를 연동
-* 한개의 파일을 업로드 할 수 있게
+# 개인 프로젝트
+## 광주 문화-예술-관광-체육 시설 안내
 
-## dependency
-* spring-jdbc
-* mybatis
-* mybatis-spring 
-* mysql-connector
-* commons-dbcp
-* commons-io
-* commons-fileupload
+### 0818-3:33 기준
+* API 불러오기중
+* 자바 Tour 일단완료
+* SubwayEvent 진행중

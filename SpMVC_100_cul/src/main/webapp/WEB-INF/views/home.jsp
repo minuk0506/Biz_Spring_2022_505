@@ -16,5 +16,8 @@
 
 <body>
 <h1>홈</h1>
+<c:forEach items="${DATAS}" var="DATA">
+	<p>${DATA.tourDestNm}<p>
+</c:forEach>
 </body>
 </html>
