@@ -7,6 +7,6 @@ import com.minuk.cul.model.RuinsVO;
 public interface RuinsService {
 	
 	public String RuinsQueryStr(String search);
-	public List<RuinsVO> getTourItems(String queryString);
+	public List<RuinsVO> getRuinsItems(String queryString);
 	
 }

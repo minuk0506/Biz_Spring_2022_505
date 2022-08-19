@@ -7,6 +7,6 @@ import com.minuk.cul.model.MsmArtGlrVO;
 public interface MsmartglrService {
 	
 	public String MsmartglrQueryStr(String search);
-	public List<MsmArtGlrVO> getTourItems(String queryString);
+	public List<MsmArtGlrVO> getMsmartglrItems(String queryString);
 	
 }

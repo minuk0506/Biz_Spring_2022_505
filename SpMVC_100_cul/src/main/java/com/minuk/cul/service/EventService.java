@@ -7,6 +7,6 @@ import com.minuk.cul.model.EventVO;
 public interface EventService {
 	
 	public String EventQueryStr(String search);
-	public List<EventVO> getTourItems(String queryString);
+	public List<EventVO> getEventItems(String queryString);
 	
 }

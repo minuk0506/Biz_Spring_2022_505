@@ -7,6 +7,6 @@ import com.minuk.cul.model.FestivalVO;
 public interface FestivalService {
 	
 	public String FestivalQueryStr(String search);
-	public List<FestivalVO> getTourItems(String queryString);
+	public List<FestivalVO> getFestivalItems(String queryString);
 	
 }

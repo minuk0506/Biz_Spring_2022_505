@@ -17,19 +17,19 @@ import org.springframework.web.client.RestTemplate;
 
 import com.minuk.cul.config.ApiConfig;
 import com.minuk.cul.config.QualifierConfig;
-import com.minuk.cul.model.TourRoot;
-import com.minuk.cul.model.TourVO;
-import com.minuk.cul.service.TourService;
+import com.minuk.cul.model.MsmArtGlrVO;
+import com.minuk.cul.model.root.GetTour;
+import com.minuk.cul.service.MsmartglrService;
 import com.minuk.cul.utils.HttpRequestInterceptorV1;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@Service(QualifierConfig.SERVICE.TOUR_V1)
-public class MsmartglrServiceImplV1 implements TourService{
+@Service(QualifierConfig.SERVICE.MSMARTGLR_V1)
+public class MsmartglrServiceImplV1 implements MsmartglrService{
 
 	@Override
-	public String tourQueryStr(String search) {
+	public String MsmartglrQueryStr(String search) {
 		
 		String tourQueryStr = ApiConfig.API_TOUR_URL;
 		String encodeParams = null;
@@ -59,7 +59,7 @@ public class MsmartglrServiceImplV1 implements TourService{
 	}
 
 	@Override
-	public List<TourVO> getTourItems(String queryString) {
+	public List<MsmArtGlrVO> getMsmartglrItems(String queryString) {
 		
 		URI foodRestURI = null;
 		
@@ -89,11 +89,11 @@ public class MsmartglrServiceImplV1 implements TourService{
 		log.debug("=".repeat(100));
 		
 		// 수신된 데이터를 VO 로 변환하기
-		ResponseEntity<TourRoot> resFoodObject = null;
+		ResponseEntity<GetTour> resFoodObject = null;
 		
 		// RestTemplate 이 수신한 데이터를 중간에 가로채서 조작하기
 		restTemp.getInterceptors().add(new HttpRequestInterceptorV1());
-		resFoodObject = restTemp.exchange(foodRestURI, HttpMethod.GET, headerEntity, TourRoot.class);
+		resFoodObject = restTemp.exchange(foodRestURI, HttpMethod.GET, headerEntity, GetTour.class);
 		
 		log.debug("수신된 데이터 {}", resFoodObject.getBody().TourDestBaseInfo);
 		

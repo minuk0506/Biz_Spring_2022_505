@@ -17,18 +17,24 @@ import lombok.extern.slf4j.Slf4j;
 public class HomeController {
 	
 	private final TourService tourService;
+//	private final SubwayeventService subwayeventService;
 	
-	public HomeController(TourService tourService) {
+	public HomeController(TourService tourService/*,SubwayeventService subwayeventService*/) {
 		this.tourService = tourService;
+//		this.subwayeventService = subwayeventService;
 	}
 	
 	@RequestMapping(value={"/",""}, method=RequestMethod.GET)
 	public String home(Model model) {
 		String tourQueryStr = tourService.tourQueryStr(null);
 		tourService.getTourItems(tourQueryStr);
-		log.debug("받은 데이터 {}",tourQueryStr);
+		log.debug("Tour 받은 데이터 {}",tourQueryStr);
 		List<TourVO> json = tourService.getTourItems(tourQueryStr);
 		model.addAttribute("DATAS", json);
+		
+//		String SubwayeventQueryStr = subwayeventService.SubwayeventQueryStr(null);
+//		List<SubwayEventVO> subwayjson = subwayeventService.getSubwayeventItems(SubwayeventQueryStr);
+//		log.debug("지하철 공연 받은 데이터 {}",subwayjson);
 		return "home";
 	}
 
