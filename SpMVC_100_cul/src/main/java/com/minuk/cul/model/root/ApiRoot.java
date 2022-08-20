@@ -7,8 +7,6 @@ import lombok.ToString;
 @ToString
 public class ApiRoot {
 
-	@JsonProperty("getStdm")
-	public GetStdm getStdm;
 	
 	@JsonProperty("getTour")
 	public GetTour getTour;
