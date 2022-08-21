@@ -16,8 +16,20 @@
 
 <body>
 <h1>홈</h1>
-<c:forEach items="${DATAS}" var="DATA">
-	<p>${DATA.tourDestNm}<p>
+<c:forEach items="${TOURS}" var="TOUR">
+	<p>관광지 : ${TOUR.tourDestNm}<p>
+</c:forEach>
+<c:forEach items="${RUINS}" var="RUIN">
+	<p>유적 : ${RUIN.localCultHeritNm}<p>
+</c:forEach>
+<c:forEach items="${MSMARTGLRS}" var="MSMARTGLR">
+	<p>박물관, 미술관 : ${MSMARTGLR.msmArtGlrNm}<p>
+</c:forEach>
+<c:forEach items="${FESTIVALS}" var="FESTIVAL">
+	<p>축제 : ${FESTIVAL.festivalNm}<p>
+</c:forEach>
+<c:forEach items="${EVENTS}" var="EVENT">
+	<p>행사 : ${EVENT.eventNm}<p>
 </c:forEach>
 </body>
 </html>

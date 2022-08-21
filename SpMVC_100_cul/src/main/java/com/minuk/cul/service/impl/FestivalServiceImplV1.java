@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
 import com.minuk.cul.config.ApiConfig;
 import com.minuk.cul.config.QualifierConfig;
 import com.minuk.cul.model.FestivalVO;
-import com.minuk.cul.model.root.GetTour;
+import com.minuk.cul.model.root.GetFestival;
 import com.minuk.cul.service.FestivalService;
 import com.minuk.cul.utils.HttpRequestInterceptorV1;
 
@@ -31,7 +31,7 @@ public class FestivalServiceImplV1 implements FestivalService{
 	@Override
 	public String FestivalQueryStr(String search) {
 		
-		String tourQueryStr = ApiConfig.API_TOUR_URL;
+		String festivalQueryStr = ApiConfig.API_FESTIVAL_URL;
 		String encodeParams = null;
 		
 		try {
@@ -52,19 +52,19 @@ public class FestivalServiceImplV1 implements FestivalService{
 			e.printStackTrace();
 		}
 		
-		tourQueryStr += encodeParams;
-		log.debug("쿼리 문자열 {}", tourQueryStr);
+		festivalQueryStr += encodeParams;
+		log.debug("쿼리 문자열 {}", festivalQueryStr);
 		
-		return tourQueryStr;
+		return festivalQueryStr;
 	}
 
 	@Override
 	public List<FestivalVO> getFestivalItems(String queryString) {
 		
-		URI foodRestURI = null;
+		URI festivalRestURI = null;
 		
 		try {
-			foodRestURI = new URI(queryString);
+			festivalRestURI = new URI(queryString);
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -82,22 +82,22 @@ public class FestivalServiceImplV1 implements FestivalService{
 		// String type 으로 데이터를 수신하여 어떤형태로
 		// 데이터가 수신되는지 확인하는 절차
 		ResponseEntity<String> resString = null;
-		resString = restTemp.exchange(foodRestURI, HttpMethod.GET, headerEntity, String.class);
+		resString = restTemp.exchange(festivalRestURI, HttpMethod.GET, headerEntity, String.class);
 		
 		log.debug("=".repeat(100));
 		log.debug("{}",resString.getBody());
 		log.debug("=".repeat(100));
 		
 		// 수신된 데이터를 VO 로 변환하기
-		ResponseEntity<GetTour> resFoodObject = null;
+		ResponseEntity<GetFestival> resFestivalObject = null;
 		
 		// RestTemplate 이 수신한 데이터를 중간에 가로채서 조작하기
 		restTemp.getInterceptors().add(new HttpRequestInterceptorV1());
-		resFoodObject = restTemp.exchange(foodRestURI, HttpMethod.GET, headerEntity, GetTour.class);
+		resFestivalObject = restTemp.exchange(festivalRestURI, HttpMethod.GET, headerEntity, GetFestival.class);
 		
-		log.debug("수신된 데이터 {}", resFoodObject.getBody().TourDestBaseInfo);
+		log.debug("수신된 데이터 {}", resFestivalObject.getBody().FestivalBaseInfo);
 		
-		return resFoodObject.getBody().TourDestBaseInfo;
+		return resFestivalObject.getBody().FestivalBaseInfo;
 	}
 
 }

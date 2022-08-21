@@ -18,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
 import com.minuk.cul.config.ApiConfig;
 import com.minuk.cul.config.QualifierConfig;
 import com.minuk.cul.model.MsmArtGlrVO;
+import com.minuk.cul.model.root.GetMsmartglr;
 import com.minuk.cul.model.root.GetTour;
 import com.minuk.cul.service.MsmartglrService;
 import com.minuk.cul.utils.HttpRequestInterceptorV1;
@@ -31,7 +32,7 @@ public class MsmartglrServiceImplV1 implements MsmartglrService{
 	@Override
 	public String MsmartglrQueryStr(String search) {
 		
-		String tourQueryStr = ApiConfig.API_TOUR_URL;
+		String msmartglrQueryStr = ApiConfig.API_MSMARTGLR_URL;
 		String encodeParams = null;
 		
 		try {
@@ -52,19 +53,19 @@ public class MsmartglrServiceImplV1 implements MsmartglrService{
 			e.printStackTrace();
 		}
 		
-		tourQueryStr += encodeParams;
-		log.debug("쿼리 문자열 {}", tourQueryStr);
+		msmartglrQueryStr += encodeParams;
+		log.debug("쿼리 문자열 {}", msmartglrQueryStr);
 		
-		return tourQueryStr;
+		return msmartglrQueryStr;
 	}
 
 	@Override
 	public List<MsmArtGlrVO> getMsmartglrItems(String queryString) {
 		
-		URI foodRestURI = null;
+		URI msmartglrRestURI = null;
 		
 		try {
-			foodRestURI = new URI(queryString);
+			msmartglrRestURI = new URI(queryString);
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -82,22 +83,22 @@ public class MsmartglrServiceImplV1 implements MsmartglrService{
 		// String type 으로 데이터를 수신하여 어떤형태로
 		// 데이터가 수신되는지 확인하는 절차
 		ResponseEntity<String> resString = null;
-		resString = restTemp.exchange(foodRestURI, HttpMethod.GET, headerEntity, String.class);
+		resString = restTemp.exchange(msmartglrRestURI, HttpMethod.GET, headerEntity, String.class);
 		
 		log.debug("=".repeat(100));
 		log.debug("{}",resString.getBody());
 		log.debug("=".repeat(100));
 		
 		// 수신된 데이터를 VO 로 변환하기
-		ResponseEntity<GetTour> resFoodObject = null;
+		ResponseEntity<GetMsmartglr> resMsmartglrObject = null;
 		
 		// RestTemplate 이 수신한 데이터를 중간에 가로채서 조작하기
 		restTemp.getInterceptors().add(new HttpRequestInterceptorV1());
-		resFoodObject = restTemp.exchange(foodRestURI, HttpMethod.GET, headerEntity, GetTour.class);
+		resMsmartglrObject = restTemp.exchange(msmartglrRestURI, HttpMethod.GET, headerEntity, GetMsmartglr.class);
 		
-		log.debug("수신된 데이터 {}", resFoodObject.getBody().TourDestBaseInfo);
+		log.debug("수신된 데이터 {}", resMsmartglrObject.getBody().MsmArtGlrBaseInfo);
 		
-		return resFoodObject.getBody().TourDestBaseInfo;
+		return resMsmartglrObject.getBody().MsmArtGlrBaseInfo;
 	}
 
 }

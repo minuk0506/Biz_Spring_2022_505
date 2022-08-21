@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
 import com.minuk.cul.config.ApiConfig;
 import com.minuk.cul.config.QualifierConfig;
 import com.minuk.cul.model.EventVO;
-import com.minuk.cul.model.root.GetTour;
+import com.minuk.cul.model.root.GetEvent;
 import com.minuk.cul.service.EventService;
 import com.minuk.cul.utils.HttpRequestInterceptorV1;
 
@@ -31,7 +31,7 @@ public class EventServiceImplV1 implements EventService{
 	@Override
 	public String EventQueryStr(String search) {
 		
-		String tourQueryStr = ApiConfig.API_TOUR_URL;
+		String eventQueryStr = ApiConfig.API_EVENT_URL;
 		String encodeParams = null;
 		
 		try {
@@ -52,19 +52,19 @@ public class EventServiceImplV1 implements EventService{
 			e.printStackTrace();
 		}
 		
-		tourQueryStr += encodeParams;
-		log.debug("쿼리 문자열 {}", tourQueryStr);
+		eventQueryStr += encodeParams;
+		log.debug("쿼리 문자열 {}", eventQueryStr);
 		
-		return tourQueryStr;
+		return eventQueryStr;
 	}
 
 	@Override
 	public List<EventVO> getEventItems(String queryString) {
 		
-		URI foodRestURI = null;
+		URI eventRestURI = null;
 		
 		try {
-			foodRestURI = new URI(queryString);
+			eventRestURI = new URI(queryString);
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -82,22 +82,22 @@ public class EventServiceImplV1 implements EventService{
 		// String type 으로 데이터를 수신하여 어떤형태로
 		// 데이터가 수신되는지 확인하는 절차
 		ResponseEntity<String> resString = null;
-		resString = restTemp.exchange(foodRestURI, HttpMethod.GET, headerEntity, String.class);
+		resString = restTemp.exchange(eventRestURI, HttpMethod.GET, headerEntity, String.class);
 		
 		log.debug("=".repeat(100));
 		log.debug("{}",resString.getBody());
 		log.debug("=".repeat(100));
 		
 		// 수신된 데이터를 VO 로 변환하기
-		ResponseEntity<GetTour> resFoodObject = null;
+		ResponseEntity<GetEvent> resEventObject = null;
 		
 		// RestTemplate 이 수신한 데이터를 중간에 가로채서 조작하기
 		restTemp.getInterceptors().add(new HttpRequestInterceptorV1());
-		resFoodObject = restTemp.exchange(foodRestURI, HttpMethod.GET, headerEntity, GetTour.class);
+		resEventObject = restTemp.exchange(eventRestURI, HttpMethod.GET, headerEntity, GetEvent.class);
 		
-		log.debug("수신된 데이터 {}", resFoodObject.getBody().TourDestBaseInfo);
+		log.debug("수신된 데이터 {}", resEventObject.getBody().EventBaseInfo);
 		
-		return resFoodObject.getBody().TourDestBaseInfo;
+		return resEventObject.getBody().EventBaseInfo;
 	}
 
 }
