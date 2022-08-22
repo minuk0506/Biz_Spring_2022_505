@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="htpp://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}"
+	>
+<th:block layout:fragment="content">
+	<div>
+		<h1>유적지정보</h1>	
+	</div>
+	<div th:each="RUIN : ${RUINS}">
+		<div>
+			<p>유적 : ${RUIN.localCultHeritNm}<p>
+		</div>
+	</div>
