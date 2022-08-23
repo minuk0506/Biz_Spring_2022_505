@@ -7,8 +7,9 @@
 	<div>
 		<h1>관광지정보</h1>	
 	</div>
-	<div th:each="TOUR : ${TOURS}">
-		<div>
-			<p>축제 : ${TOUR.tourDestNm}<p>
+	<div th:each="TOUR : ${TOURS}" th:object="${TOUR}">
+		<div th:attr="data-tourDestNm=*{tourDestNm}">
+			<p>행사, 공연 :</p>
+			<p th:text="*{tourDestNm}"><p>
 		</div>
 	</div>
