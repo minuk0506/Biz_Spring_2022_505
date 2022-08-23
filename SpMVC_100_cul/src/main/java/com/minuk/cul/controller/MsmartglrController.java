@@ -23,14 +23,14 @@ public class MsmartglrController {
 		this.msmartglrService = msmartglrService;
 	}
 
-	@RequestMapping(value={"/msmartglr"}, method=RequestMethod.GET)
+	@RequestMapping(value={"/facility"}, method=RequestMethod.GET)
 	public String home(Model model) {
 		String msmartglrQueryStr = msmartglrService.MsmartglrQueryStr(null);
 		msmartglrService.getMsmartglrItems(msmartglrQueryStr);
 		log.debug("Msmartglr 받은 데이터 {}",msmartglrQueryStr);
 		List<MsmArtGlrVO> Msmartglrjson = msmartglrService.getMsmartglrItems(msmartglrQueryStr);
 		model.addAttribute("MSMARTGLRS", Msmartglrjson);
-		return "/travel/msmartglr";
+		return "/travel/facility";
 	}
 
 }

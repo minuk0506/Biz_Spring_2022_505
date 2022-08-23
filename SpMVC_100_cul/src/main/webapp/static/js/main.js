@@ -1,12 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const navs = document.querySelectorAll("nav li");
+  const navs = document.querySelectorAll("nav li.top-menu");
+  const hambtn = document.querySelector("nav li span.material-icons");
+  const slidemenu = document.querySelector("div.slide-menu");
+
+  hambtn.addEventListener("click", () => {
+    console.log("menu clicked");
+    if (slidemenu.classList.contains("clicked")) {
+      slidemenu.classList.remove("clicked");
+    } else {
+      slidemenu.classList.add("clicked");
+    }
+  });
+
   const navs_click = (e) => {
     const nav = e.target;
     let url = `${rootPath}/`;
     if (nav.innerText === "광주 여행") {
       url += "travel/tour";
-    } else if (nav.innerText === "광주의 축제") {
+    } else if (nav.innerText === "광주의 즐길거리") {
       url += "active/event";
+    } else if (nav.innerText === "다양한 시설") {
+      url += "travel/facility";
     }
 
     document.location.href = url;

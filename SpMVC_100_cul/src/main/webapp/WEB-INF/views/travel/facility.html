@@ -5,12 +5,12 @@
 <th:block layout:fragment="content">
 	<div class="container">
 		<div>
-			<h1>관광지정보</h1>
+			<h1>시설정보</h1>
 		</div>
-		<div th:each="TOUR : ${TOURS}" th:object="${TOUR}">
-			<div th:attr="data-tourDestNm=*{tourDestNm}">
-				<p>관광지이름 :</p>
-				<p th:text="*{tourDestNm}">
+		<div th:each="MSMARTGLR : ${MSMARTGLRS}" th:object="${MSMARTGLR}">
+			<div th:attr="data-msmArtGlrNm=*{msmArtGlrNm}">
+				<p>시설이름 :</p>
+				<p th:text="*{msmArtGlrNm}">
 				<p>
 			</div>
 		</div>
