@@ -2,8 +2,10 @@ package com.minuk.cul.service.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.minuk.cul.config.QualifierConfig;
 import com.minuk.cul.model.EventVO;
 import com.minuk.cul.model.FestivalVO;
 import com.minuk.cul.model.MsmArtGlrVO;
@@ -13,6 +15,7 @@ import com.minuk.cul.model.TourVO;
 import com.minuk.cul.persistance.SearchDao;
 import com.minuk.cul.service.SearchService;
 
+@Service(QualifierConfig.SERVICE.SEARCH_V1)
 public class SearchServiceImplV1 implements SearchService {
 
 	private final SearchDao searchDao;
