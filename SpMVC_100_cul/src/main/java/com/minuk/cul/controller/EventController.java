@@ -27,7 +27,7 @@ public class EventController {
 		this.festivalService = festivalService;
 	}
 
-	@RequestMapping(value={"/event"}, method=RequestMethod.GET)
+	@RequestMapping(value="/event", method=RequestMethod.GET)
 	public String event(Model model) {
 		String eventQueryStr = eventService.EventQueryStr(null);
 		eventService.getEventItems(eventQueryStr);
@@ -38,7 +38,7 @@ public class EventController {
 	}
 	
 	
-	@RequestMapping(value={"/festival"}, method=RequestMethod.GET)
+	@RequestMapping(value="/festival", method=RequestMethod.GET)
 	public String festival(Model model) {
 		String festivalQueryStr = festivalService.FestivalQueryStr(null);
 		festivalService.getFestivalItems(festivalQueryStr);

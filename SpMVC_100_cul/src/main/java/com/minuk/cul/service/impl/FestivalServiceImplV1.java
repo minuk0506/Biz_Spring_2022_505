@@ -38,12 +38,6 @@ public class FestivalServiceImplV1 implements FestivalService{
 			encodeParams = "?" + URLEncoder.encode("serviceKey","UTF-8");
 			encodeParams += "=" + ApiConfig.SERVICE_KEY;
 			
-			encodeParams += "&" + URLEncoder.encode("pageNo","UTF-8");
-			encodeParams += "=1";
-			
-			encodeParams += "&" + URLEncoder.encode("numOfRows","UTF-8");
-			encodeParams += "=10";
-			
 			encodeParams += "&" + URLEncoder.encode("type","UTF-8");
 			encodeParams += "=json";
 			

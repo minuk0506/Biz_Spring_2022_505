@@ -28,7 +28,7 @@ public class TourController {
 		
 	}
 
-	@RequestMapping(value={"/tour"}, method=RequestMethod.GET)
+	@RequestMapping(value="/tour", method=RequestMethod.GET)
 	public String tour(Model model) {
 		String tourQueryStr = tourService.tourQueryStr(null);
 		tourService.getTourItems(tourQueryStr);
@@ -39,7 +39,7 @@ public class TourController {
 		return "/travel/tour";
 	}
 
-	@RequestMapping(value={"/ruins"}, method=RequestMethod.GET)
+	@RequestMapping(value="/ruins", method=RequestMethod.GET)
 	public String ruins(Model model) {
 
 		String ruinsQueryStr = ruinsService.RuinsQueryStr(null);
