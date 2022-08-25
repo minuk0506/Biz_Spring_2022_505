@@ -2,6 +2,7 @@ package com.minuk.cul.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -12,54 +13,15 @@ import com.minuk.cul.model.MsmArtGlrVO;
 import com.minuk.cul.model.RuinsVO;
 import com.minuk.cul.model.SearchVO;
 import com.minuk.cul.model.TourVO;
-import com.minuk.cul.persistance.SearchDao;
+import com.minuk.cul.persistance.SearchDto;
 import com.minuk.cul.service.SearchService;
 
 @Service(QualifierConfig.SERVICE.SEARCH_V1)
 public class SearchServiceImplV1 implements SearchService {
 
-	private final SearchDao searchDao;
-
-	public SearchServiceImplV1(SearchDao searchDao) {
-		this.searchDao = searchDao;
-	}
-
-	@Override
-	public List<EventVO> eventSearchAndPage(SearchVO searchPage) {
-		// TODO Auto-generated method stub
-		return searchDao.eventSearchAndPage(searchPage);
-	}
-
-	@Override
-	public List<FestivalVO> festivalSearchAndPage(SearchVO searchPage) {
-		// TODO Auto-generated method stub
-		return searchDao.festivalSearchAndPage(searchPage);
-	}
-
-	@Override
-	public List<MsmArtGlrVO> msmArtGlrSearchAndPage(SearchVO searchPage) {
-		// TODO Auto-generated method stub
-		return searchDao.msmArtGlrSearchAndPage(searchPage);
-	}
-
-	@Override
-	public List<RuinsVO> ruinsSearchAndPage(SearchVO searchPage) {
-		// TODO Auto-generated method stub
-		return searchDao.ruinsSearchAndPage(searchPage);
-	}
-
-	@Override
-	public List<TourVO> tourSearchAndPage(SearchVO searchPage) {
-		// TODO Auto-generated method stub
-		return searchDao.tourSearchAndPage(searchPage);
-	}
-
-	@Override
-	public List<SearchVO> searchAndPage(SearchVO searchPage) {
-		// TODO Auto-generated method stub
-		return searchDao.searchAndPage(searchPage);
-	}
-
+	@Autowired
+	private SearchDto searchDto;
+	
 	// 한 페이지에 보여질 데이터 리스트 개수
 	private static final long LIST_PER_PAGE = 10;
 
@@ -74,11 +36,11 @@ public class SearchServiceImplV1 implements SearchService {
 		searchPage.setSearch(search);
 
 		// 검색어 조건에 맞는 모든 데이터를 일단 select
-		List<EventVO> eventList = searchDao.eventSearchAndPage(searchPage);
-		List<FestivalVO> festivalList = searchDao.festivalSearchAndPage(searchPage);
-		List<MsmArtGlrVO> msmartglrList = searchDao.msmArtGlrSearchAndPage(searchPage);
-		List<RuinsVO> ruinsList = searchDao.ruinsSearchAndPage(searchPage);
-		List<TourVO> tourList = searchDao.tourSearchAndPage(searchPage);
+		List<EventVO> eventList = searchDto.eventSearchAndPage(searchPage);
+		List<FestivalVO> festivalList = searchDto.festivalSearchAndPage(searchPage);
+		List<MsmArtGlrVO> msmartglrList = searchDto.msmArtGlrSearchAndPage(searchPage);
+		List<RuinsVO> ruinsList = searchDto.ruinsSearchAndPage(searchPage);
+		List<TourVO> tourList = searchDto.tourSearchAndPage(searchPage);
 
 		long totalCount = eventList.size() + festivalList.size() + msmartglrList.size() + ruinsList.size()
 				+ tourList.size();
@@ -92,7 +54,7 @@ public class SearchServiceImplV1 implements SearchService {
 		long currentPageNo = searchPage.getCurrentPageNo();
 
 		// 삼항 연산자를 사용할때
-		currentPageNo = currentPageNo > 1 ? (currentPageNo > finalPageNo ? finalPageNo : currentPageNo) : 1;
+		// currentPageNo = currentPageNo > 1 ? (currentPageNo > finalPageNo ? finalPageNo : currentPageNo) : 1;
 
 		// 일반적인 if 문을 사용할때
 		if (currentPageNo > finalPageNo) {
@@ -120,5 +82,6 @@ public class SearchServiceImplV1 implements SearchService {
 		// JSP 로 보내기 위해서 model 에 담기
 		model.addAttribute("PAGE", searchPage);
 	}
+
 
 }
