@@ -55,9 +55,9 @@ public class AServiceImpl implements AService{
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-		
+		log.debug("헤더 {}",headers.toString());
 		HttpEntity<String> headerEntity = new HttpEntity<String>("parameter",headers);
-		
+		log.debug("헤더 엔티티 {}",headerEntity.toString());
 		RestTemplate restTemp = new RestTemplate();
 		
 		return null;
